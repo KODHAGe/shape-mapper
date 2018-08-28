@@ -1,28 +1,65 @@
 <template>
   <div class="p5block">
-    <div class="p5block-variables">
-      This here will be content
+    <div class="p5block-wrapper" :class="type" v-if="type == 'rectangle'">
+      <div class="p5block-variables">
+        <h3>Attribute</h3>
+        <p>X</p>
+        <vue-slider ref="slider" v-model="sliderValueX" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <p>Y</p>
+        <vue-slider ref="slider" v-model="sliderValueY" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <p>Length</p>
+        <vue-slider ref="slider" v-model="sliderValueL" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+        <p>Height</p>
+        <vue-slider ref="slider" v-model="sliderValueW" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+      </div>
+      <P5Scene :type="type" :x="sliderValueX" :y="sliderValueY" :w="sliderValueL" :l="sliderValueW" class="p5block-scene"></P5Scene>
     </div>
-    <P5Scene class="p5block-scene"></P5Scene>
+    <div class="p5block-wrapper" :class="type"  v-if="type == 'cube'">
+      <div class="p5block-variables">
+        <h3>Attribute</h3>
+        <p>Rotation</p>
+        <vue-slider ref="slider" v-model="sliderValueX" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <p>Y</p>
+        <vue-slider ref="slider" v-model="sliderValueY" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <p>Width</p>
+        <vue-slider ref="slider" v-model="sliderValueL" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+        <p>Length</p>
+        <vue-slider ref="slider" v-model="sliderValueW" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+      </div>
+      <P5Scene :type="type" :x="sliderValueX" :y="sliderValueY" :w="sliderValueL" :l="sliderValueW" class="p5block-scene"></P5Scene>
+    </div>
   </div>
 </template>
 
 <script>
 import P5Scene from './P5Scene.vue'
+import vueSlider from 'vue-slider-component'
 
 export default {
   name: 'P5Block',
   components: {
-    P5Scene
+    P5Scene,
+    vueSlider
   },
   props: {
-    msg: String
+    type: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      sliderValueX: 10,
+      sliderValueY: 10,
+      sliderValueL: 10,
+      sliderValueW: 10
+    }
   }
 }
 </script>
 
 <style scoped>
-  .p5block {
+  .p5block-wrapper {
+    width: 100%;
     display: flex;
     flex-grow: 1;
     flex-flow: row;
@@ -30,5 +67,10 @@ export default {
   }
   .p5block-variables {
     font-size: 1.1em;
+    flex-grow: 1;
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <P5Block msg="hello"></P5Block>
-    <P5Block msg="hello"></P5Block>
+    <P5Block type="rectangle"></P5Block>
+    <P5Block type="cube"></P5Block>
   </div>
 </template>
 
@@ -28,4 +28,7 @@ export default {
   display: flex;
   flex-flow: column;
 }
+
+/* FOR PROTOTYPING ❤️ */
+
 </style>
