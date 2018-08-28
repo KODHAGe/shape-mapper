@@ -4,13 +4,13 @@
       <div class="p5block-variables">
         <h3>Attribute</h3>
         <p>X</p>
-        <vue-slider ref="slider" v-model="sliderValueX" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <vue-slider ref="slider" v-model="sliderValueX" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
         <p>Y</p>
-        <vue-slider ref="slider" v-model="sliderValueY" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <vue-slider ref="slider" v-model="sliderValueY" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
         <p>Length</p>
-        <vue-slider ref="slider" v-model="sliderValueL" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderValueL" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Height</p>
-        <vue-slider ref="slider" v-model="sliderValueW" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderValueW" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
       <P5Scene :type="type" :x="sliderValueX" :y="sliderValueY" :w="sliderValueL" :l="sliderValueW" class="p5block-scene"></P5Scene>
     </div>
@@ -18,13 +18,13 @@
       <div class="p5block-variables">
         <h3>Attribute</h3>
         <p>Rotation</p>
-        <vue-slider ref="slider" v-model="sliderValueX" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <vue-slider ref="slider" v-model="sliderValueX" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
         <p>Y</p>
-        <vue-slider ref="slider" v-model="sliderValueY" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>      
+        <vue-slider ref="slider" v-model="sliderValueY" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
         <p>Width</p>
-        <vue-slider ref="slider" v-model="sliderValueL" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderValueL" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Length</p>
-        <vue-slider ref="slider" v-model="sliderValueW" max="300" tooltip-dir="bottom" tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderValueW" :max=300 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
       <P5Scene :type="type" :x="sliderValueX" :y="sliderValueY" :w="sliderValueL" :l="sliderValueW" class="p5block-scene"></P5Scene>
     </div>
