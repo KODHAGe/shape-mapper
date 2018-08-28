@@ -12,19 +12,19 @@ export default {
       type: String
     },
     x: {
-      default: 5,
+      default: 0,
       type: Number
     },
     y: {
-      default: 5,
+      default: 0,
       type: Number
     },
     w: {
-      default: 5,
+      default: 0,
       type: Number
     },
     l: {
-      default: 5,
+      default: 0,
       type: Number
     }
   },
@@ -37,14 +37,18 @@ export default {
       }
       if(this.type == 'rectangle') {
         p.draw = _ => {
-          p.background(0)
-          p.fill(255)
+          p.background(255)
+          p.fill(0)
           p.rect(this.x, this.y, this.w, this.l)
         }
       } else if (this.type == 'cube') {
           p.draw = _ => {
-          p.background(0)
-          p.rotateY(p.frameCount * (0.0005*this.x));
+          p.background(255)
+          p.fill(239, 45, 94)
+          p.noStroke()
+          p.ambientLight(1000)
+          p.directionalLight(255, 0, 0, 0.25, 0.25, 0)
+          p.rotateY(p.frameCount * (0.0005*this.x))
           p.translate(10, this.y)
           p.box(this.w, this.l)
         }
@@ -58,13 +62,9 @@ export default {
     }
   },
   updated () {
-    console.log('update')
   }
 }
 </script>
 
 <style scoped>
-  .p5scene {
-    align-self: flex-end;
-  }
 </style>

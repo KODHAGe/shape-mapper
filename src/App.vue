@@ -23,10 +23,13 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Amiri');
+
 #app {
   width: 100%;
   display: flex;
   flex-flow: column;
+  font-family: 'Amiri', serif;
 }
 
 /* FOR PROTOTYPING ❤️ */
