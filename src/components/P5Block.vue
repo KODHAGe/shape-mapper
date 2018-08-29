@@ -1,53 +1,37 @@
 <template>
   <div class="p5block">
-    <div class="p5block-wrapper" :class="type" v-if="type == 'rectangle'">
-      <div class="p5block-variables">
-        <h3>Attribute</h3>
-        <p>X</p>
-        <vue-slider ref="slider" v-model="sliderValueX" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
-        <p>Y</p>
-        <vue-slider ref="slider" v-model="sliderValueY" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
-        <p>Length</p>
-        <vue-slider ref="slider" v-model="sliderValueL" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-        <p>Height</p>
-        <vue-slider ref="slider" v-model="sliderValueW" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-      </div>
-      <P5Scene :type="type" :x="sliderValueX" :y="sliderValueY" :w="sliderValueL" :l="sliderValueW" class="p5block-scene"></P5Scene>
-    </div>
-    <div class="p5block-wrapper" :class="type"  v-if="type == 'cube'">
-      <div class="p5block-variables">
-        <h3>Attribute</h3>
-        <p>Rotation</p>
-        <vue-slider ref="slider" v-model="sliderValueX" :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
-        <p>Y</p>
-        <vue-slider ref="slider" v-model="sliderValueY" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
-        <p>Width</p>
-        <vue-slider ref="slider" v-model="sliderValueL" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-        <p>Length</p>
-        <vue-slider ref="slider" v-model="sliderValueW" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-      </div>
-      <P5Scene :type="type" :x="sliderValueX" :y="sliderValueY" :w="sliderValueL" :l="sliderValueW" class="p5block-scene"></P5Scene>
-    </div>
+    <h3>{{title}}</h3>
+    <select v-model="blockSelection">
+      <option value="" disabled selected hidden>Please select a shape</option>
+      <option value="cone" disabled>Cone</option>
+      <option value="cube">Cube</option>
+      <option value="ellipsoid" disabled>Ellipsoid</option>
+      <option value="plane" disabled>Plane</option>
+      <option value="toroid" disabled>Toroid</option>
+      <option value="pyramid" disabled>Pyramid</option>
+    </select>
+    <P5CubeBlock v-if="blockSelection == 'cube'"></P5CubeBlock>
   </div>
 </template>
 
 <script>
-import P5Scene from './P5Scene.vue'
+import P5CubeBlock from './P5CubeBlock.vue'
 import vueSlider from 'vue-slider-component'
 
 export default {
   name: 'P5Block',
   components: {
-    P5Scene,
+    P5CubeBlock,
     vueSlider
   },
   props: {
-    type: {
+    title: {
       type: String
     }
   },
   data () {
     return {
+      blockSelection: '',
       sliderValueX: 10,
       sliderValueY: 10,
       sliderValueL: 10,

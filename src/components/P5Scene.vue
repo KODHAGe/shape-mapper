@@ -7,25 +7,49 @@
 export default {
   name: 'P5Scene',
   props: {
-    type: {
-      default: null,
-      type: String
-    },
-    x: {
-      default: 0,
-      type: Number
-    },
-    y: {
-      default: 0,
-      type: Number
-    },
-    w: {
-      default: 0,
-      type: Number
-    },
-    l: {
-      default: 0,
-      type: Number
+    sliderData: {
+      default: {},
+      type: Object,
+      sliderValueRotX: {
+        default: 0,
+        type: Number
+      },
+      sliderValueRotY: {
+        default: 0,
+        type: Number
+      },
+      sliderValueRotZ: {
+        default: 0,
+        type: Number
+      },
+      /*sliderValueX: {
+        default: 0,
+        type: Number
+      },
+      sliderValueY: {
+        default: 0,
+        type: Number
+      },
+      sliderValueZ: {
+        default: 0,
+        type: Number
+      },*/
+      sliderValueLength: {
+        default: 0,
+        type: Number
+      },
+      sliderValueWidth: {
+        default: 0,
+        type: Number
+      },
+      sliderValueHeight: {
+        default: 0,
+        type: Number
+      },
+      sliderValueHue: {
+        default: 0,
+        type: Number
+      }
     }
   },
   mounted () {
@@ -35,23 +59,24 @@ export default {
       p.setup = () => {
         p.createCanvas(300, 300, 'webgl')
       }
-      if(this.type == 'rectangle') {
-        p.draw = _ => {
-          p.background(255)
-          p.fill(0)
-          p.rect(this.x, this.y, this.w, this.l)
-        }
-      } else if (this.type == 'cube') {
-          p.draw = _ => {
-          p.background(255)
-          p.fill(239, 45, 94)
+      p.draw = _ => {
+        p.background(255)
+        p.directionalLight(0,0,100, 0, 0, -1)
+        p.directionalLight(0,0,100, 0, 0, 0)
+        p.ambientLight(0,0,100)
+        p.colorMode(p.HSB)
+
+        p.push()
+          p.ambientMaterial(this.sliderData.sliderValueHue, 65, 95);
           p.noStroke()
-          p.ambientLight(1000)
-          p.directionalLight(255, 0, 0, 0.25, 0.25, 0)
-          p.rotateY(p.frameCount * (0.0005*this.x))
-          p.translate(10, this.y)
-          p.box(this.w, this.l)
-        }
+          var locX = p.mouseX - p.height / 2;
+          var locY = p.mouseY - p.width / 2;
+          /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
+          p.rotateY(this.sliderData.sliderValueRotY * 0.05)
+          p.rotateX(this.sliderData.sliderValueRotX * 0.05)
+          p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
+          p.box(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength)
+        p.pop()
       }
     };
     this.p5instance = new p5(sketch, this.$el)
