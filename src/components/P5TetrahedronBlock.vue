@@ -13,16 +13,14 @@
         <vue-slider ref="slider" v-model="sliderData.sliderValueY" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Position on the z-axis</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueZ" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>-->   
-        <p>Width</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueLength" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-        <p>Length</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueWidth" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-        <p>Height</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Scale</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueScale" :min=3 :max=10 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Lightness</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
-      <P5Scene :sliderData="sliderData" class="p5block-scene"></P5Scene>
+      <P5Scene :sliderData="sliderData" :preloadFunction="preloadFunction" :drawFunction="drawFunction" class="p5block-scene"></P5Scene>
   </div>
 </template>
 
@@ -31,12 +29,36 @@ import P5Scene from './P5Scene.vue'
 import vueSlider from 'vue-slider-component'
 
 export default {
-  name: 'P5CubeBlock',
+  name: 'P5TetrahedronBlock',
   components: {
     P5Scene,
     vueSlider
   },
   props: {
+  },
+  methods: {
+    preloadFunction(p) {
+      let model = p.loadModel('/models/Tetrahedron.obj')
+      this.preloadedModel = model
+    },
+    drawFunction(p) {
+      p.background(100)
+      p.directionalLight(0,0,100, 0, 0, -1)
+      p.directionalLight(0,0,100, 0, 0, 0)
+      //p.ambientLight(0,0,100)
+      p.colorMode(p.HSB)
+      p.push()
+        p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
+        //p.noStroke()
+        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
+        p.rotateY(this.sliderData.sliderValueRotY * 0.05)
+        p.rotateX(this.sliderData.sliderValueRotX * 0.05)
+        p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
+        p.scale(this.sliderData.sliderValueScale)
+        p.model(this.preloadedModel)
+        
+      p.pop()
+    }
   },
   data () {
     return {
@@ -47,10 +69,9 @@ export default {
         /*sliderValueX: 0,
         sliderValueY: 0,
         sliderValueZ: 0,*/
-        sliderValueLength: 100,
-        sliderValueWidth: 100,
-        sliderValueHeight: 100,
-        sliderValueHue: 0
+        sliderValueScale: 5,
+        sliderValueHue: 0,
+        sliderValueLightness: 100
       }
     }
   }
@@ -64,7 +85,7 @@ export default {
     flex-grow: 1;
     flex-flow: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
   }
   .p5block-variables {
     font-size: 1.1em;

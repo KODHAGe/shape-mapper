@@ -9,11 +9,11 @@
       <option value="dodecahedron">Dodecahedron</option>
       <option value="ellipsoid">Ellipsoid</option>
       <option value="plane" disabled>Plane</option>
-      <option value="hexahedron" disabled>Hexahedron</option>
-      <option value="icosahedron" disabled>Icosahedron</option>
+      <option value="hexahedron">Hexahedron</option>
+      <option value="icosahedron">Icosahedron</option>
       <option value="toroid" disabled>Toroid</option>
-      <option value="octahedron" disabled>Octahedron</option>
-      <option value="plane" disabled>Plane</option>
+      <option value="octahedron">Octahedron</option>
+      <option value="tetrahedron">Tetrahedron</option>
     </select>
     <P5BoxBlock v-if="blockSelection == 'box'"></P5BoxBlock>
     <P5ConeBlock v-if="blockSelection == 'cone'"></P5ConeBlock>
@@ -24,6 +24,7 @@
     <P5IcosahedronBlock v-if="blockSelection == 'icosahedron'"></P5IcosahedronBlock>
     <P5OctahedronBlock v-if="blockSelection == 'octahedron'"></P5OctahedronBlock>
     <P5PlaneBlock v-if="blockSelection == 'plane'"></P5PlaneBlock>
+    <P5TetrahedronBlock v-if="blockSelection == 'tetrahedron'"></P5TetrahedronBlock>
   </div>
 </template>
 
@@ -37,6 +38,7 @@ import P5HexahedronBlock from './P5HexahedronBlock.vue'
 import P5IcosahedronBlock from './P5IcosahedronBlock.vue'
 import P5OctahedronBlock from './P5OctahedronBlock.vue'
 import P5PlaneBlock from './P5PlaneBlock.vue'
+import P5TetrahedronBlock from './P5TetrahedronBlock.vue'
 import vueSlider from 'vue-slider-component'
 
 export default {
@@ -51,6 +53,7 @@ export default {
     P5IcosahedronBlock,
     P5OctahedronBlock,
     P5PlaneBlock,
+    P5TetrahedronBlock,
     vueSlider
   },
   props: {

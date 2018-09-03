@@ -42,7 +42,6 @@ export default {
       this.preloadedModel = model
     },
     drawFunction(p) {
-      console.log(this.preloadedModel)
       p.background(100)
       p.directionalLight(0,0,100, 0, 0, -1)
       p.directionalLight(0,0,100, 0, 0, 0)
