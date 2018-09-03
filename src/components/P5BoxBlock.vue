@@ -21,8 +21,10 @@
         <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Lightness</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
-      <P5Scene :sliderData="sliderData" class="p5block-scene"></P5Scene>
+      <P5Scene :sliderData="sliderData" :drawFunction="drawFunction" class="p5block-scene"></P5Scene>
   </div>
 </template>
 
@@ -38,6 +40,25 @@ export default {
   },
   props: {
   },
+  methods: {
+    drawFunction(p) {
+      p.background(255)
+      p.directionalLight(0,0,100, 0, 0, -1)
+      p.directionalLight(0,0,100, 0, 0, 0)
+      p.ambientLight(0,0,100)
+      p.colorMode(p.HSB)
+
+      p.push()
+        p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
+        p.noStroke()
+        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
+        p.rotateY(this.sliderData.sliderValueRotY * 0.05)
+        p.rotateX(this.sliderData.sliderValueRotX * 0.05)
+        p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
+        p.box(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength)
+      p.pop()
+    }
+  },
   data () {
     return {
       sliderData: {
@@ -50,7 +71,8 @@ export default {
         sliderValueLength: 100,
         sliderValueWidth: 100,
         sliderValueHeight: 100,
-        sliderValueHue: 0
+        sliderValueHue: 0,
+        sliderValueLightness: 100
       }
     }
   }
@@ -64,7 +86,7 @@ export default {
     flex-grow: 1;
     flex-flow: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
   }
   .p5block-variables {
     font-size: 1.1em;

@@ -4,7 +4,7 @@
     <select v-model="blockSelection">
       <option value="" disabled selected hidden>Please select a shape</option>
       <option value="box">Box</option>
-      <option value="cone" disabled>Cone</option>
+      <option value="cone">Cone</option>
       <option value="dodecahedron" disabled>Dodecahedron</option>
       <option value="ellipsoid" disabled>Ellipsoid</option>
       <option value="plane" disabled>Plane</option>
