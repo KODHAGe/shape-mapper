@@ -6,7 +6,7 @@
       <option value="box">Box</option>
       <option value="cone">Cone</option>
       <option value="cylinder">Cylinder</option>
-      <option value="dodecahedron" disabled>Dodecahedron</option>
+      <option value="dodecahedron">Dodecahedron</option>
       <option value="ellipsoid" disabled>Ellipsoid</option>
       <option value="plane" disabled>Plane</option>
       <option value="hexahedron" disabled>Hexahedron</option>

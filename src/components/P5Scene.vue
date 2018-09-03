@@ -7,6 +7,10 @@
 export default {
   name: 'P5Scene',
   props: {
+    preloadFunction: {
+      default: null,
+      type: Function
+    },
     drawFunction: {
       default: {},
       type: Function
@@ -16,6 +20,9 @@ export default {
     const p5 = require('p5')
 
     var sketch = (p) => {
+      if(this.preloadFunction) {
+        p.preload = () => this.preloadFunction(p)
+      }
       p.setup = () => {
         p.createCanvas(300, 300, 'webgl')
         p.setAttributes('antialias', true)
