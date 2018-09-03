@@ -21,8 +21,10 @@
         <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Lightness</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
-      <P5Scene :sliderData="sliderData" class="p5block-scene"></P5Scene>
+      <P5Scene :sliderData="sliderData" :drawFunction="drawFunction" class="p5block-scene"></P5Scene>
   </div>
 </template>
 
@@ -31,12 +33,31 @@ import P5Scene from './P5Scene.vue'
 import vueSlider from 'vue-slider-component'
 
 export default {
-  name: 'P5CubeBlock',
+  name: 'P5EllipsoidBlock',
   components: {
     P5Scene,
     vueSlider
   },
   props: {
+  },
+  methods: {
+    drawFunction(p) {
+      p.background(255)
+      p.directionalLight(0,0,100, 0, 0, -1)
+      p.directionalLight(0,0,100, 0, 0, 0)
+      p.ambientLight(0,0,100)
+      p.colorMode(p.HSB)
+
+      p.push()
+        p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
+        p.noStroke()
+        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
+        p.rotateY(this.sliderData.sliderValueRotY * 0.05)
+        p.rotateX(this.sliderData.sliderValueRotX * 0.05)
+        p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
+        p.ellipsoid(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength, 100, 100);
+      p.pop()
+    }
   },
   data () {
     return {
@@ -47,10 +68,10 @@ export default {
         /*sliderValueX: 0,
         sliderValueY: 0,
         sliderValueZ: 0,*/
-        sliderValueLength: 100,
-        sliderValueWidth: 100,
+        sliderValueRadius: 100,
         sliderValueHeight: 100,
-        sliderValueHue: 0
+        sliderValueHue: 0,
+        sliderValueLightness: 100
       }
     }
   }
