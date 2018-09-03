@@ -1,18 +1,17 @@
 <template>
   <div id="app">
     <P5Block title="Attribute name up here"></P5Block>
+    <P5Block title="Test 2"></P5Block>
   </div>
 </template>
 
 <script>
-import BoxComponent from './components/BoxComponent.vue'
 import 'p5'
 import P5Block from './components/P5Block.vue'
 
 export default {
   name: 'app',
   components: {
-    BoxComponent,
     P5Block
   }
 }

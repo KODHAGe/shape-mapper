@@ -58,6 +58,7 @@ export default {
     var sketch = (p) => {
       p.setup = () => {
         p.createCanvas(300, 300, 'webgl')
+        p.setAttributes('antialias', true)
       }
       p.draw = _ => {
         p.background(255)
@@ -67,10 +68,8 @@ export default {
         p.colorMode(p.HSB)
 
         p.push()
-          p.ambientMaterial(this.sliderData.sliderValueHue, 65, 95);
+          p.ambientMaterial(this.sliderData.sliderValueHue, 65, 95)
           p.noStroke()
-          var locX = p.mouseX - p.height / 2;
-          var locY = p.mouseY - p.width / 2;
           /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
           p.rotateY(this.sliderData.sliderValueRotY * 0.05)
           p.rotateX(this.sliderData.sliderValueRotX * 0.05)

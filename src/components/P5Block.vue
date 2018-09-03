@@ -3,25 +3,53 @@
     <h3>{{title}}</h3>
     <select v-model="blockSelection">
       <option value="" disabled selected hidden>Please select a shape</option>
+      <option value="box">Box</option>
       <option value="cone" disabled>Cone</option>
-      <option value="cube">Cube</option>
+      <option value="dodecahedron" disabled>Dodecahedron</option>
       <option value="ellipsoid" disabled>Ellipsoid</option>
       <option value="plane" disabled>Plane</option>
+      <option value="hexahedron" disabled>Hexahedron</option>
+      <option value="icosahedron" disabled>Icosahedron</option>
       <option value="toroid" disabled>Toroid</option>
-      <option value="pyramid" disabled>Pyramid</option>
+      <option value="octahedron" disabled>Octahedron</option>
+      <option value="plane" disabled>Plane</option>
     </select>
-    <P5CubeBlock v-if="blockSelection == 'cube'"></P5CubeBlock>
+    <P5BoxBlock v-if="blockSelection == 'box'"></P5BoxBlock>
+    <P5ConeBlock v-if="blockSelection == 'cone'"></P5ConeBlock>
+    <P5CylinderBlock v-if="blockSelection == 'cylinder'"></P5CylinderBlock>
+    <P5DodecahedronBlock v-if="blockSelection == 'dodecahedron'"></P5DodecahedronBlock>
+    <P5EllipsoidBlock v-if="blockSelection == 'ellipsoid'"></P5EllipsoidBlock>
+    <P5HexahedronBlock v-if="blockSelection == 'hexahedron'"></P5HexahedronBlock>
+    <P5IcosahedronBlock v-if="blockSelection == 'icosahedron'"></P5IcosahedronBlock>
+    <P5OctahedronBlock v-if="blockSelection == 'octahedron'"></P5OctahedronBlock>
+    <P5PlaneBlock v-if="blockSelection == 'plane'"></P5PlaneBlock>
   </div>
 </template>
 
 <script>
-import P5CubeBlock from './P5CubeBlock.vue'
+import P5BoxBlock from './P5BoxBlock.vue'
+import P5ConeBlock from './P5ConeBlock.vue'
+import P5CylinderBlock from './P5CylinderBlock.vue'
+import P5DodecahedronBlock from './P5DodecahedronBlock.vue'
+import P5EllipsoidBlock from './P5EllipsoidBlock.vue'
+import P5HexahedronBlock from './P5HexahedronBlock.vue'
+import P5IcosahedronBlock from './P5IcosahedronBlock.vue'
+import P5OctahedronBlock from './P5OctahedronBlock.vue'
+import P5PlaneBlock from './P5PlaneBlock.vue'
 import vueSlider from 'vue-slider-component'
 
 export default {
   name: 'P5Block',
   components: {
-    P5CubeBlock,
+    P5BoxBlock,
+    P5ConeBlock,
+    P5CylinderBlock,
+    P5DodecahedronBlock,
+    P5EllipsoidBlock,
+    P5HexahedronBlock,
+    P5IcosahedronBlock,
+    P5OctahedronBlock,
+    P5PlaneBlock,
     vueSlider
   },
   props: {
