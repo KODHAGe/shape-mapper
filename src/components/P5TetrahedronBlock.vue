@@ -45,18 +45,17 @@ export default {
       p.background(100)
       p.directionalLight(0,0,100, 0, 0, -1)
       p.directionalLight(0,0,100, 0, 0, 0)
-      //p.ambientLight(0,0,100)
+      p.ambientLight(0,0,100)
       p.colorMode(p.HSB)
       p.push()
         p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
-        //p.noStroke()
+        p.noStroke()
         /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
         p.rotateY(this.sliderData.sliderValueRotY * 0.05)
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
         p.scale(this.sliderData.sliderValueScale)
         p.model(this.preloadedModel)
-        
       p.pop()
     }
   },

@@ -9,7 +9,6 @@
       <option value="dodecahedron">Dodecahedron</option>
       <option value="ellipsoid">Ellipsoid</option>
       <option value="plane" disabled>Plane</option>
-      <option value="hexahedron">Hexahedron</option>
       <option value="icosahedron">Icosahedron</option>
       <option value="toroid" disabled>Toroid</option>
       <option value="octahedron">Octahedron</option>
@@ -20,7 +19,6 @@
     <P5CylinderBlock v-if="blockSelection == 'cylinder'"></P5CylinderBlock>
     <P5DodecahedronBlock v-if="blockSelection == 'dodecahedron'"></P5DodecahedronBlock>
     <P5EllipsoidBlock v-if="blockSelection == 'ellipsoid'"></P5EllipsoidBlock>
-    <P5HexahedronBlock v-if="blockSelection == 'hexahedron'"></P5HexahedronBlock>
     <P5IcosahedronBlock v-if="blockSelection == 'icosahedron'"></P5IcosahedronBlock>
     <P5OctahedronBlock v-if="blockSelection == 'octahedron'"></P5OctahedronBlock>
     <P5PlaneBlock v-if="blockSelection == 'plane'"></P5PlaneBlock>
@@ -34,7 +32,6 @@ import P5ConeBlock from './P5ConeBlock.vue'
 import P5CylinderBlock from './P5CylinderBlock.vue'
 import P5DodecahedronBlock from './P5DodecahedronBlock.vue'
 import P5EllipsoidBlock from './P5EllipsoidBlock.vue'
-import P5HexahedronBlock from './P5HexahedronBlock.vue'
 import P5IcosahedronBlock from './P5IcosahedronBlock.vue'
 import P5OctahedronBlock from './P5OctahedronBlock.vue'
 import P5PlaneBlock from './P5PlaneBlock.vue'
@@ -49,7 +46,6 @@ export default {
     P5CylinderBlock,
     P5DodecahedronBlock,
     P5EllipsoidBlock,
-    P5HexahedronBlock,
     P5IcosahedronBlock,
     P5OctahedronBlock,
     P5PlaneBlock,

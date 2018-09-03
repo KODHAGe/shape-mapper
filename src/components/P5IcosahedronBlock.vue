@@ -55,8 +55,7 @@ export default {
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
         p.scale(this.sliderData.sliderValueScale)
-        p.model(this.preloadedModel)
-        
+        p.model(this.preloadedModel)   
       p.pop()
     }
   },
