@@ -53,7 +53,7 @@ export default {
         p.rotateY(this.sliderData.sliderValueRotY * 0.05)
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
-        p.cylinder(this.sliderData.sliderValueRadius, this.sliderData.sliderValueHeight);
+        p.cylinder(this.sliderData.sliderValueRadius, this.sliderData.sliderValueHeight, 50, 50);
       p.pop()
     }
   },

@@ -55,7 +55,7 @@ export default {
         p.rotateY(this.sliderData.sliderValueRotY * 0.05)
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
-        p.ellipsoid(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength, 100, 100);
+        p.ellipsoid(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength, 50, 50);
       p.pop()
     }
   },

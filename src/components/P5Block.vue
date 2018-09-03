@@ -8,9 +8,9 @@
       <option value="cylinder">Cylinder</option>
       <option value="dodecahedron">Dodecahedron</option>
       <option value="ellipsoid">Ellipsoid</option>
-      <option value="plane" disabled>Plane</option>
+      <option value="plane">Plane</option>
       <option value="icosahedron">Icosahedron</option>
-      <option value="toroid" disabled>Toroid</option>
+      <option value="torus">Torus</option>
       <option value="octahedron">Octahedron</option>
       <option value="tetrahedron">Tetrahedron</option>
     </select>
@@ -23,6 +23,7 @@
     <P5OctahedronBlock v-if="blockSelection == 'octahedron'"></P5OctahedronBlock>
     <P5PlaneBlock v-if="blockSelection == 'plane'"></P5PlaneBlock>
     <P5TetrahedronBlock v-if="blockSelection == 'tetrahedron'"></P5TetrahedronBlock>
+    <P5TorusBlock v-if="blockSelection == 'torus'"></P5TorusBlock>
   </div>
 </template>
 
@@ -36,6 +37,8 @@ import P5IcosahedronBlock from './P5IcosahedronBlock.vue'
 import P5OctahedronBlock from './P5OctahedronBlock.vue'
 import P5PlaneBlock from './P5PlaneBlock.vue'
 import P5TetrahedronBlock from './P5TetrahedronBlock.vue'
+import P5TorusBlock from './P5TorusBlock.vue'
+
 import vueSlider from 'vue-slider-component'
 
 export default {
@@ -49,6 +52,7 @@ export default {
     P5IcosahedronBlock,
     P5OctahedronBlock,
     P5PlaneBlock,
+    P5TorusBlock,
     P5TetrahedronBlock,
     vueSlider
   },
@@ -60,10 +64,6 @@ export default {
   data () {
     return {
       blockSelection: '',
-      sliderValueX: 10,
-      sliderValueY: 10,
-      sliderValueL: 10,
-      sliderValueW: 10
     }
   }
 }
