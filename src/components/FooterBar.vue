@@ -21,8 +21,7 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 6rem;
-    /*background-color: #fff;*/
+    height: auto;
     display: flex;
     flex-flow: column;
   }
@@ -30,6 +29,8 @@ export default {
     background-color: #58b688;
     align-self: flex-end;
     padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: 1rem;
     color: white;
     font-size: 1.3rem;
