@@ -55,7 +55,17 @@ export default {
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
         p.plane(this.sliderData.sliderValueWidth, this.sliderData.sliderValueLength);
       p.pop()
+    },
+    updateObjectStorage (storageObject) {
+      this.$store.commit('updateObjectStorage', storageObject)
     }
+  },
+  updated () {
+    let storageObject = {
+      title: this.title,
+      data: this.sliderData
+    }
+    this.updateObjectStorage(storageObject)
   },
   data () {
     return {

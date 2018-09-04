@@ -57,7 +57,17 @@ export default {
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
         p.ellipsoid(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength, 50, 50);
       p.pop()
+    },
+    updateObjectStorage (storageObject) {
+      this.$store.commit('updateObjectStorage', storageObject)
     }
+  },
+  updated () {
+    let storageObject = {
+      title: this.title,
+      data: this.sliderData
+    }
+    this.updateObjectStorage(storageObject)
   },
   data () {
     return {

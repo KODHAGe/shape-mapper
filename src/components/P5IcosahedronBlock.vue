@@ -57,7 +57,17 @@ export default {
         p.scale(this.sliderData.sliderValueScale)
         p.model(this.preloadedModel)   
       p.pop()
+    },
+    updateObjectStorage (storageObject) {
+      this.$store.commit('updateObjectStorage', storageObject)
     }
+  },
+  updated () {
+    let storageObject = {
+      title: this.title,
+      data: this.sliderData
+    }
+    this.updateObjectStorage(storageObject)
   },
   data () {
     return {

@@ -62,7 +62,7 @@ export default {
       p.pop()
     },
     updateObjectStorage (storageObject) {
-      this.$store.commit('update', storageObject)
+      this.$store.commit('updateObjectStorage', storageObject)
     }
   },
   updated () {

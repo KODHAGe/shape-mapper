@@ -1,15 +1,31 @@
 <template>
   <div class="footer">
-    <div class="save-button box-shadow-2">Save answers</div>
+    <div class="save-button box-shadow-2" v-on:click="saveRecord">Save answers</div>
   </div>
 </template>
 
 <script>
+import { addResultRecords } from '../api/firebase.js'
+
 export default {
   name: 'FooterBar',
   computed: {
     dataToSave() {
-      this.$store.state.ObjectStorage
+      return this.$store.state.objectStorage
+    },
+    userId() {
+      return this.$store.state.userId
+    }
+  },
+  methods: {
+    saveRecord() {
+      console.log(this.dataToSave)
+      if(this.dataToSave){
+        console.log('save')
+        addResultRecords(this.dataToSave, this.userId)
+      } else {
+        // Handle 'no changes' case
+      }
     }
   }
 }

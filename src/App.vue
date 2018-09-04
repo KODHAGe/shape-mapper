@@ -17,12 +17,19 @@
 import 'p5'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
+import { anonymousSignOn } from './api/firebase.js'
 
 export default {
   name: 'app',
   components: {
     P5Block,
     FooterBar
+  },
+  mounted() {
+    anonymousSignOn().then((uid) => {
+      this.$store.commit('setUser', uid)
+      // Enable autosave?
+    })
   }
 }
 </script>
@@ -50,7 +57,7 @@ export default {
 }
 
 .box-shadow-3 {
-  	box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
 }
 
 /* FOR PROTOTYPING ❤️ */

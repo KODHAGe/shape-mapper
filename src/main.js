@@ -7,18 +7,22 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    ObjectStorage: []
+    objectStorage: [],
+    userId: ''
   },
   mutations: {
-    update (state, newObject) {
-      let pos = state.ObjectStorage.map(function(e) { 
+    updateObjectStorage (state, newObject) {
+      let pos = state.objectStorage.map(function(e) { 
         return e.title
       }).indexOf(newObject.title)
       if(pos === -1) {
-        state.ObjectStorage.push(newObject)
+        state.objectStorage.push(newObject)
       } else {
-        state.ObjectStorage[pos] = newObject
+        state.objectStorage[pos] = newObject
       }
+    },
+    setUser (state, id) {
+      state.userId = id;
     }
   }
 })
