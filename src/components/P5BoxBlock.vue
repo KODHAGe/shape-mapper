@@ -39,6 +39,9 @@ export default {
     vueSlider
   },
   props: {
+    title: {
+      type: String
+    }
   },
   methods: {
     drawFunction(p) {
@@ -57,7 +60,17 @@ export default {
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
         p.box(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength)
       p.pop()
+    },
+    updateObjectStorage (storageObject) {
+      this.$store.commit('update', storageObject)
     }
+  },
+  updated () {
+    let storageObject = {
+      title: this.title,
+      data: this.sliderData
+    }
+    this.updateObjectStorage(storageObject)
   },
   data () {
     return {
@@ -81,7 +94,7 @@ export default {
 
 <style scoped>
   .p5block-wrapper {
-    margin: 1em;
+    margin: 1rem;
     display: flex;
     flex-grow: 1;
     flex-flow: row;
@@ -89,11 +102,8 @@ export default {
     align-items: center;
   }
   .p5block-variables {
-    font-size: 1.1em;
+    font-size: 1.1rem;
     flex-grow: 0.8;
-    align-self: center;
-  }
-  .p5scene {
     align-self: center;
   }
   p {

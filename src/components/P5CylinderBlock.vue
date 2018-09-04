@@ -78,7 +78,7 @@ export default {
 
 <style scoped>
   .p5block-wrapper {
-    margin: 1em;
+    margin: 1rem;
     display: flex;
     flex-grow: 1;
     flex-flow: row;
@@ -86,7 +86,7 @@ export default {
     align-items:center;
   }
   .p5block-variables {
-    font-size: 1.1em;
+    font-size: 1.1rem;
     flex-grow: 0.8;
     align-self: center;
   }

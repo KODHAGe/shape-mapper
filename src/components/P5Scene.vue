@@ -12,14 +12,14 @@ export default {
       type: Function
     },
     drawFunction: {
-      default: {},
+      default: null,
       type: Function
     }
   },
   mounted () {
     const p5 = require('p5')
 
-    var sketch = (p) => {
+    let sketch = (p) => {
       if(this.preloadFunction) {
         p.preload = () => this.preloadFunction(p)
       }
@@ -27,7 +27,7 @@ export default {
         p.createCanvas(300, 300, 'webgl')
         p.setAttributes('antialias', true)
       }
-      p.draw = _ => this.drawFunction(p)
+      p.draw = () => this.drawFunction(p)
     };
     this.p5instance = new p5(sketch, this.$el)
   },
