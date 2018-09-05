@@ -4,6 +4,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import _ from 'lodash'
 
 // Config
 const config = {
@@ -17,36 +18,38 @@ const config = {
 
 firebase.initializeApp(config)
 
-const db = firebase.firestore()
+const db = firebase.firestore();
+const firestoreSettings = { timestampsInSnapshots: true };
+db.settings(firestoreSettings);
 
 function anonymousSignOn() {
   firebase.auth().signInAnonymously().catch(function() {
     // Let user know they are not identifiable
   });
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     firebase.auth().onAuthStateChanged(user => {
       resolve(user.uid)
     })
   })
 }
 
-function addResultRecords(resultArray, userId) {
+let addResultRecords = _.debounce((resultArray, userId, callback) => {
   if(resultArray && userId) {
+    let setArray = []
     resultArray.forEach((resultObject) => {
-      console.log(resultObject)
       resultObject['userId'] = userId
       let docId = userId + resultObject.title.toLowerCase().replace(/\s/g,'')
-      db.collection("results").doc(docId).set(resultObject)
-      .then(function() {
-          // Return successful save notification
-      })
-      .catch(function(error) {
-          // Notify of unsuccessful save op
-      });
+      let set = db.collection("results").doc(docId).set(resultObject)
+      setArray.push(set)
+    })
+    Promise.all(setArray).then((resolve) =>  {
+      callback(true)
+    }).catch((error) => {
+      callback('error ', error)
     })
   }
-}
+}, 500)
 
 // Exports
 export { firebase, db, addResultRecords, anonymousSignOn }

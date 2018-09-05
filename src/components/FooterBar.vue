@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="save-button box-shadow-2" v-on:click="saveRecord">Save answers</div>
+    <div class="save-button box-shadow-2" v-bind:class="{saved: saveState}" v-on:click="saveRecord">Submit answers</div>
   </div>
 </template>
 
@@ -15,6 +15,9 @@ export default {
     },
     userId() {
       return this.$store.state.userId
+    },
+    saveState() {
+      return this.$store.state.saveState
     }
   },
   methods: {
@@ -42,7 +45,7 @@ export default {
     flex-flow: column;
   }
   .save-button {
-    background-color: #58b688;
+    background-color: gainsboro;
     align-self: flex-end;
     padding: 0.5rem;
     padding-left: 1rem;
@@ -52,6 +55,10 @@ export default {
     font-size: 1.3rem;
     font-weight: bold;
     transition: all 0.2s ease-in;
+  }
+
+  .saved {
+    background-color: #58b688;
   }
 
   .save-button:hover {

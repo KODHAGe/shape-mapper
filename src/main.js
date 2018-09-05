@@ -8,7 +8,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     objectStorage: [],
-    userId: ''
+    userId: '',
+    saveState: false
   },
   mutations: {
     updateObjectStorage (state, newObject) {
@@ -23,6 +24,9 @@ const store = new Vuex.Store({
     },
     setUser (state, id) {
       state.userId = id;
+    },
+    saveState (state, saveState) {
+      state.saveState = saveState
     }
   }
 })

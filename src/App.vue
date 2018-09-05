@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <P5Block title="Attribute 1"></P5Block>
-    <P5Block title="Attribute 2"></P5Block>
-    <P5Block title="Attribute 3"></P5Block>
-    <P5Block title="Attribute 4"></P5Block>
-    <P5Block title="Attribute 5"></P5Block>
-    <P5Block title="Attribute 6"></P5Block>
-    <P5Block title="Attribute 7"></P5Block>
-    <P5Block title="Attribute 8"></P5Block>
-    <P5Block title="Attribute 9"></P5Block>
+    <P5Block title="Anger"></P5Block>
+    <P5Block title="Fear"></P5Block>
+    <P5Block title="Joy"></P5Block>
+    <P5Block title="Sadness"></P5Block>
+    <P5Block title="Analytical"></P5Block>
+    <P5Block title="Confident"></P5Block>
+    <P5Block title="Tentative"></P5Block>
     <FooterBar></FooterBar>
   </div>
 </template>
@@ -17,7 +15,7 @@
 import 'p5'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
-import { anonymousSignOn } from './api/firebase.js'
+import { anonymousSignOn, addResultRecords } from './api/firebase.js'
 
 export default {
   name: 'app',
@@ -25,11 +23,32 @@ export default {
     P5Block,
     FooterBar
   },
+  computed: {
+    dataToSave() {
+      return this.$store.state.objectStorage
+    },
+    userId() {
+      return this.$store.state.userId
+    }
+  },
   mounted() {
     anonymousSignOn().then((uid) => {
       this.$store.commit('setUser', uid)
-      // Enable autosave?
+      this.autosave = true
     })
+  },
+  watch: {
+    dataToSave: {
+      handler () {
+        this.$store.commit('saveState', false)
+        if(this.autosave == true && this.dataToSave){
+          addResultRecords(this.dataToSave, this.userId, (value) => {
+            this.$store.commit('saveState', value)
+          })
+        }
+      },
+      deep: true
+    }
   }
 }
 </script>
