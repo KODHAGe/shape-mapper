@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <P5Block title="Anger"></P5Block>
-    <!--<P5Block title="Fear"></P5Block>
-    <P5Block title="Joy"></P5Block>
-    <P5Block title="Sadness"></P5Block>
-    <P5Block title="Analytical"></P5Block>
-    <P5Block title="Confident"></P5Block>
-    <P5Block title="Tentative"></P5Block>-->
+    <P5Block v-for="item in blocks" :title="item" :key="item"></P5Block>
     <FooterBar></FooterBar>
   </div>
 </template>
 
 <script>
 import store from './store'
-import 'p5'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
 import { anonymousSignOn, addResultRecords } from './api/firebase.js'
@@ -24,6 +17,12 @@ export default {
   components: {
     P5Block,
     FooterBar
+  },
+  props: {
+    blocks: {
+      type: Array,
+      default: () => []
+    }
   },
   computed: {
     dataToSave() {

@@ -4,6 +4,8 @@
 </template>
 
 <script>
+import p5 from 'p5/lib/p5.min'
+
 export default {
   name: 'P5Scene',
   props: {
@@ -17,8 +19,6 @@ export default {
     }
   },
   mounted () {
-    const p5 = require('p5')
-
     let sketch = (p) => {
       if(this.preloadFunction) {
         p.preload = () => this.preloadFunction(p)

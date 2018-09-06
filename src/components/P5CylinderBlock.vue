@@ -28,7 +28,7 @@
 
 <script>
 import P5Scene from './P5Scene.vue'
-import vueSlider from 'vue-slider-component'
+import vueSlider from './VueSliderComponent'
 
 export default {
   name: 'P5CylinderBlock',
