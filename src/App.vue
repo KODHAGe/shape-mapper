@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <P5Block v-for="item in blocks" :title="item" :key="item"></P5Block>
+    <P5Block v-for="item in blocksArray" :title="item" :key="item"></P5Block>
     <FooterBar></FooterBar>
   </div>
 </template>
@@ -20,8 +20,8 @@ export default {
   },
   props: {
     blocks: {
-      type: Array,
-      default: () => []
+      type: String,
+      default: "Anger"
     }
   },
   computed: {
@@ -30,6 +30,9 @@ export default {
     },
     userId() {
       return this.$store.state.userId
+    },
+    blocksArray() {
+      return this.blocks ? this.blocks.split(",") : null
     }
   },
   mounted() {
@@ -79,7 +82,5 @@ export default {
 .box-shadow-3 {
   box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
 }
-
-/* FOR PROTOTYPING ❤️ */
 
 </style>

@@ -37,6 +37,9 @@ export default {
     vueSlider
   },
   props: {
+    title: {
+      type: String
+    }
   },
   methods: {
     drawFunction(p) {
@@ -86,7 +89,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;

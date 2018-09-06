@@ -35,6 +35,9 @@ export default {
     vueSlider
   },
   props: {
+    title: {
+      type: String
+    }
   },
   methods: {
     preloadFunction(p) {
@@ -87,7 +90,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;
