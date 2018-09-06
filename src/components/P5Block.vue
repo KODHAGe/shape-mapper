@@ -39,7 +39,7 @@ import P5PlaneBlock from './P5PlaneBlock.vue'
 import P5TetrahedronBlock from './P5TetrahedronBlock.vue'
 import P5TorusBlock from './P5TorusBlock.vue'
 
-import vueSlider from 'vue-slider-component'
+import vueSlider from './VueSliderComponent'
 
 export default {
   name: 'P5Block',
@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block {
     border: 1px solid #eee;
     margin-bottom: 0.5rem;

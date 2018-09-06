@@ -1,27 +1,28 @@
 <template>
   <div id="app">
-    <P5Block title="Anger"></P5Block>
-    <P5Block title="Fear"></P5Block>
-    <P5Block title="Joy"></P5Block>
-    <P5Block title="Sadness"></P5Block>
-    <P5Block title="Analytical"></P5Block>
-    <P5Block title="Confident"></P5Block>
-    <P5Block title="Tentative"></P5Block>
+    <P5Block v-for="item in blocksArray" :title="item" :key="item"></P5Block>
     <FooterBar></FooterBar>
   </div>
 </template>
 
 <script>
-import 'p5'
+import store from './store'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
 import { anonymousSignOn, addResultRecords } from './api/firebase.js'
 
 export default {
+  store,
   name: 'app',
   components: {
     P5Block,
     FooterBar
+  },
+  props: {
+    blocks: {
+      type: String,
+      default: "Anger"
+    }
   },
   computed: {
     dataToSave() {
@@ -29,6 +30,9 @@ export default {
     },
     userId() {
       return this.$store.state.userId
+    },
+    blocksArray() {
+      return this.blocks ? this.blocks.split(",") : null
     }
   },
   mounted() {
@@ -78,7 +82,5 @@ export default {
 .box-shadow-3 {
   box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
 }
-
-/* FOR PROTOTYPING ❤️ */
 
 </style>
