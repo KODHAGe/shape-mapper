@@ -19,3 +19,13 @@ npm run build
 ```
 npm run lint
 ```
+
+### Compiles a web component export
+```
+npm run wc
+```
+
+### Compiles a production build with webpack-bundle-analyser
+```
+npm run analyse
+```
