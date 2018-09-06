@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "wc-dev": "vue-cli-service  build --target wc --name my-element src/App.vue"
   },
   "dependencies": {
     "firebase": "^5.4.2",
