@@ -4,7 +4,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
-import _ from 'lodash'
+import debounce from 'lodash/debounce'
 
 // Config
 const config = {
@@ -34,7 +34,7 @@ function anonymousSignOn() {
   })
 }
 
-let addResultRecords = _.debounce((resultArray, userId, callback) => {
+let addResultRecords = debounce((resultArray, userId, callback) => {
   if(resultArray && userId) {
     let setArray = []
     resultArray.forEach((resultObject) => {

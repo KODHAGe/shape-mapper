@@ -26,7 +26,7 @@
 
 <script>
 import P5Scene from './P5Scene.vue'
-import vueSlider from 'vue-slider-component'
+import vueSlider from './VueSliderComponent'
 
 export default {
   name: 'P5DodecahedronBlock',
@@ -35,6 +35,9 @@ export default {
     vueSlider
   },
   props: {
+    title: {
+      type: String
+    }
   },
   methods: {
     preloadFunction(p) {
@@ -87,7 +90,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;

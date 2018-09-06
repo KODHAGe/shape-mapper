@@ -30,7 +30,7 @@
 
 <script>
 import P5Scene from './P5Scene.vue'
-import vueSlider from 'vue-slider-component'
+import vueSlider from './VueSliderComponent'
 
 export default {
   name: 'P5EllipsoidBlock',
@@ -39,6 +39,9 @@ export default {
     vueSlider
   },
   props: {
+    title: {
+      type: String
+    }
   },
   methods: {
     drawFunction(p) {
@@ -88,7 +91,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;

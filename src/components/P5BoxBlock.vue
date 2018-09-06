@@ -30,7 +30,7 @@
 
 <script>
 import P5Scene from './P5Scene.vue'
-import vueSlider from 'vue-slider-component'
+import vueSlider from './VueSliderComponent'
 
 export default {
   name: 'P5BoxBlock',
@@ -92,7 +92,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;
