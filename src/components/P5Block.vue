@@ -2,29 +2,17 @@
   <div class="p5block">
     <h3 class="attribute-title">{{title}} - <span class="attribute-definition">{{definition}}</span></h3>
     <h5 class="attribute-synonyms">Synonyms: {{synonyms}}</h5>
-    <select class="block-select" v-model="blockSelection">
-      <option value="" disabled selected hidden>Please select a shape</option>
-      <option value="box">Box</option>
-      <option value="cone">Cone</option>
-      <option value="cylinder">Cylinder</option>
-      <option value="dodecahedron">Dodecahedron</option>
-      <option value="ellipsoid">Ellipsoid</option>
-      <option value="plane">Plane</option>
-      <option value="icosahedron">Icosahedron</option>
-      <option value="torus">Torus</option>
-      <option value="octahedron">Octahedron</option>
-      <option value="tetrahedron">Tetrahedron</option>
-    </select>
-    <P5BoxBlock :title="title" v-if="blockSelection == 'box'"></P5BoxBlock>
-    <P5ConeBlock :title="title" v-if="blockSelection == 'cone'"></P5ConeBlock>
-    <P5CylinderBlock :title="title" v-if="blockSelection == 'cylinder'"></P5CylinderBlock>
-    <P5DodecahedronBlock :title="title" v-if="blockSelection == 'dodecahedron'"></P5DodecahedronBlock>
-    <P5EllipsoidBlock :title="title" v-if="blockSelection == 'ellipsoid'"></P5EllipsoidBlock>
-    <P5IcosahedronBlock :title="title" v-if="blockSelection == 'icosahedron'"></P5IcosahedronBlock>
-    <P5OctahedronBlock :title="title" v-if="blockSelection == 'octahedron'"></P5OctahedronBlock>
-    <P5PlaneBlock :title="title" v-if="blockSelection == 'plane'"></P5PlaneBlock>
-    <P5TetrahedronBlock :title="title" v-if="blockSelection == 'tetrahedron'"></P5TetrahedronBlock>
-    <P5TorusBlock :title="title" v-if="blockSelection == 'torus'"></P5TorusBlock>
+    <vue-slider class="box-selector" ref="slider" v-model="blockSelection" v-bind="options"></vue-slider>
+    <P5BoxBlock :title="title" v-if="blockSelection == 'Box'"></P5BoxBlock>
+    <P5ConeBlock :title="title" v-if="blockSelection == 'Cone'"></P5ConeBlock>
+    <P5CylinderBlock :title="title" v-if="blockSelection == 'Cylinder'"></P5CylinderBlock>
+    <P5DodecahedronBlock :title="title" v-if="blockSelection == 'Dodecahedron'"></P5DodecahedronBlock>
+    <P5EllipsoidBlock :title="title" v-if="blockSelection == 'Ellipsoid'"></P5EllipsoidBlock>
+    <P5IcosahedronBlock :title="title" v-if="blockSelection == 'Icosahedron'"></P5IcosahedronBlock>
+    <P5OctahedronBlock :title="title" v-if="blockSelection == 'Octahedron'"></P5OctahedronBlock>
+    <P5PlaneBlock :title="title" v-if="blockSelection == 'Plane'"></P5PlaneBlock>
+    <P5TetrahedronBlock :title="title" v-if="blockSelection == 'Tetrahedron'"></P5TetrahedronBlock>
+    <P5TorusBlock :title="title" v-if="blockSelection == 'Torus'"></P5TorusBlock>
   </div>
 </template>
 
@@ -43,6 +31,7 @@ import P5TetrahedronBlock from './P5TetrahedronBlock.vue'
 import P5TorusBlock from './P5TorusBlock.vue'
 
 import vueSlider from './VueSliderComponent.vue'
+
 import dictionary from '../assets/dictionary.json'
 
 export default Vue.extend({
@@ -68,6 +57,56 @@ export default Vue.extend({
   data () {
     return {
       blockSelection: '',
+      options: {
+        width: "90%",
+        value: "Box",
+        tooltip: "always",
+        disabled: false,
+        piecewise: true,
+        piecewiseLabel: true,
+        data: [
+          "Box",
+          "Cone",
+          "Cylinder",
+          "Dodecahedron",
+          "Ellipsoid",
+          "Plane",
+          "Icosahedron",
+          "Torus",
+          "Octahedron",
+          "Tetrahedron"
+        ],
+        piecewiseStyle: {
+          "backgroundColor": "#ccc",
+          "visibility": "visible",
+          "width": "12px",
+          "height": "12px"
+        },
+        piecewiseActiveStyle: {
+          "backgroundColor": "#ccc"
+        },
+        labelActiveStyle: {
+          "color": "#333"
+        },
+        tooltipStyle: [
+          {
+            "backgroundColor": "#6abe95",
+            "borderColor": "#6abe95;"
+          },
+          {
+            "backgroundColor": "#6abe95",
+            "borderColor": "#6abe95"
+          }
+        ],
+        sliderStyle: [
+          {
+            "backgroundColor": "#ccc"
+          }
+        ],
+        processStyle: {
+          "backgroundColor": "#ccc"
+        }
+      }
     }
   },
   computed: {
@@ -104,5 +143,16 @@ export default Vue.extend({
   .block-select {
     margin: 1rem;
     margin-top: 0.5rem;
+  }
+  .vue-slider:hover {
+    cursor: pointer;
+  }
+  .vue-slider-piecewise-label:hover {
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .box-selector {
+    margin-left: 1em;
+    margin-top: 3em;
   }
 </style>
