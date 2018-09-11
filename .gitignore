@@ -1,11 +1,11 @@
 .DS_Store
 node_modules
 /dist
-stats.json
 
 # local env files
 .env.local
 .env.*.local
+now.json
 
 # Log files
 npm-debug.log*

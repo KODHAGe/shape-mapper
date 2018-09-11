@@ -6,11 +6,12 @@
 </template>
 
 <script lang="ts">
+
 import Vue from 'vue'
-import store from './store.js'
+import store from './store'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
-import { anonymousSignOn, addResultRecords } from './api/firebase.js'
+import { anonymousSignOn, addResultRecords } from './api/firebase'
 
 export default Vue.extend({
   store,
@@ -26,7 +27,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    dataToSave(): object {
+    dataToSave(): Array<any> {
       return this.$store.state.objectStorage
     },
     userId(): number {

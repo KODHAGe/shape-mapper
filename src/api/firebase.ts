@@ -27,23 +27,27 @@ function anonymousSignOn() {
     // Let user know they are not identifiable
   });
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     firebase.auth().onAuthStateChanged(user => {
-      resolve(user.uid)
+      if(user == null){
+        reject(null)
+      } else {
+        resolve(user.uid)
+      }
     })
   })
 }
 
-let addResultRecords = debounce((resultArray, userId, callback) => {
+let addResultRecords = debounce((resultArray: Array<any>, userId: Number, callback: Function) => {
   if(resultArray && userId) {
-    let setArray = []
-    resultArray.forEach((resultObject) => {
+    let setArray = <Array<any>> []
+    resultArray.forEach((resultObject: any) => {
       resultObject['userId'] = userId
       let docId = userId + resultObject.title.toLowerCase().replace(/\s/g,'')
       let set = db.collection("results").doc(docId).set(resultObject)
       setArray.push(set)
     })
-    Promise.all(setArray).then((resolve) =>  {
+    Promise.all(setArray).then(() =>  {
       callback(true)
     }).catch((error) => {
       callback('error ', error)

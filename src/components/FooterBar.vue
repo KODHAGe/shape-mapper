@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { addResultRecords } from '../api/firebase.js'
+import { addResultRecords } from '../api/firebase'
 
 export default {
   name: 'FooterBar',

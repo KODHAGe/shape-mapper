@@ -7,9 +7,12 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "wc": "vue-cli-service  build --target wc --name shape-mapper src/App.vue --dest dist/component/",
-    "analyse": "vue-cli-service build --bundle-analyser"
+    "analyse": "vue-cli-service build --bundle-analyser",
+    "now": "now ./dist -A ../now.json --public && now alias",
+    "publish": "npm run build && npm run wc && npm run now"
   },
   "dependencies": {
+    "@types/lodash.debounce": "^4.0.4",
     "firebase": "^5.4.2",
     "lodash": "^4.17.10",
     "p5": "^0.7.2",

@@ -5,9 +5,9 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    objectStorage: [],
-    userId: '',
-    saveState: false
+    objectStorage: <Array<any>> [],
+    userId: <String> '',
+    saveState: <Boolean> false
   },
   mutations: {
     updateObjectStorage (state, newObject) {
