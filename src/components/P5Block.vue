@@ -1,6 +1,7 @@
 <template>
   <div class="p5block">
-    <h3 class="attribute-title">{{title}}</h3>
+    <h3 class="attribute-title">{{title}} - <span class="attribute-definition">{{definition}}</span></h3>
+    <h5 class="attribute-synonyms">Synonyms: {{synonyms}}</h5>
     <select class="block-select" v-model="blockSelection">
       <option value="" disabled selected hidden>Please select a shape</option>
       <option value="box">Box</option>
@@ -27,7 +28,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import P5BoxBlock from './P5BoxBlock.vue'
 import P5ConeBlock from './P5ConeBlock.vue'
 import P5CylinderBlock from './P5CylinderBlock.vue'
@@ -39,9 +42,10 @@ import P5PlaneBlock from './P5PlaneBlock.vue'
 import P5TetrahedronBlock from './P5TetrahedronBlock.vue'
 import P5TorusBlock from './P5TorusBlock.vue'
 
-import vueSlider from './VueSliderComponent'
+import vueSlider from './VueSliderComponent.vue'
+import dictionary from '../assets/dictionary.json'
 
-export default {
+export default Vue.extend({
   name: 'P5Block',
   components: {
     P5BoxBlock,
@@ -65,8 +69,18 @@ export default {
     return {
       blockSelection: '',
     }
+  },
+  computed: {
+    definition(): String {
+      let key = this.title.toLowerCase()
+      return dictionary[key].definition
+    },
+    synonyms(): String {
+      let key = this.title.toLowerCase()
+      return dictionary[key].synonyms
+    }
   }
-}
+})
 </script>
 
 <style>
@@ -78,6 +92,14 @@ export default {
   .attribute-title {
     margin: 1rem;
     margin-bottom: 0.5rem;
+  }
+  .attribute-definition {
+    font-weight: 400;
+    font-style: italic;
+  }
+  .attribute-synonyms {
+    margin: 1rem;
+    font-weight: 400;
   }
   .block-select {
     margin: 1rem;

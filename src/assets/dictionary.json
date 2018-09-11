@@ -1,0 +1,38 @@
+{
+  "anger" : {
+    "definition"  : "A strong feeling of annoyance, displeasure, or hostility.",
+    "synonyms" : "annoyance, vexation, exasperation, crossness, irritation, irritability, indignation, pique, displeasure, resentment"
+  },
+  "fear" : {
+    "definition" : "An unpleasant emotion caused by the threat of danger, pain, or harm.",
+    "synonyms" : "terror, fright, fearfulness, horror, alarm, panic, agitation, trepidation, dread, consternation, dismay, distress"
+  },
+  "joy" : {
+    "definition" : "A feeling of great pleasure and happiness.",
+    "synonyms" : "delight, great pleasure, joyfulness, jubilation, triumph, exultation, rejoicing, happiness, gladness, glee, exhilaration"
+  },
+  "sadness" : {
+    "definition" : "The condition or quality of feeling or showing sorrow; unhappiness.",
+    "synonyms" : "unhappiness, sorrow, dejection, regret, depression, misery, cheerlessness, downheartedness, despondency, despair, desolation"
+  },
+  "analytical" : {
+    "definition" : "Relating to or using analysis or logical reasoning.",
+    "synonyms" : "systematic, logical, scientific, inquisitive, investigative, enquiring, methodical, organized, well organized, ordered, orderly, meticulous"
+  },
+  "confident" : {
+    "definition" : "Feeling or showing confidence in oneself or one's abilities or qualities.",
+    "synonyms" : "sure, certain, positive, convinced, in no doubt, unshakeable in one's belief, secure in one's belief, easy in one's mind, satisfied, assured"
+  },
+  "tentative" : {
+    "definition" : "Done without confidence; hesitant.",
+    "synonyms" : "provisional, unconfirmed, unsettled, indefinite, pencilled in, preliminary, to be confirmed, TBC, subject to confirmation"
+  },
+  "negative" : {
+    "definition" : "Expressing or implying denial, disagreement, or refusal.",
+    "synonyms" : "pessimistic, defeatist, gloomy, gloom-ridden, cynical, bleak, fatalistic, dismissive, anti, antipathetic, uncooperative, obstructive"
+  },
+  "positive" : {
+    "definition" : "Constructive, optimistic, or confident.",
+    "synonyms" : "affirmative, favourable, approving, in the affirmative, good, constructive, enthusiastic, supportive, reassuring, encouraging, corroborative"
+  }
+}
