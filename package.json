@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "wc": "vue-cli-service  build --target wc --name shape-mapper src/App.vue",
+    "wc": "vue-cli-service  build --target wc --name shape-mapper src/App.vue --dest dist/component/",
     "analyse": "vue-cli-service build --bundle-analyser"
   },
   "dependencies": {
@@ -19,7 +19,10 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-plugin-typescript": "^3.0.1",
     "@vue/cli-service": "^3.0.0",
+    "@vue/eslint-config-typescript": "^3.0.0",
+    "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.17",
     "webpack-bundle-analyzer": "^2.13.1"
   },
@@ -30,11 +33,12 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "rules": {},
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "typescript-eslint-parser"
     }
   },
   "postcss": {

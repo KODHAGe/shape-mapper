@@ -5,13 +5,14 @@
   </div>
 </template>
 
-<script>
-import store from './store'
+<script lang="ts">
+import Vue from 'vue'
+import store from './store.js'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
 import { anonymousSignOn, addResultRecords } from './api/firebase.js'
 
-export default {
+export default Vue.extend({
   store,
   name: 'app',
   components: {
@@ -21,18 +22,23 @@ export default {
   props: {
     blocks: {
       type: String,
-      default: "Anger"
+      default: "Anger,Fear,Joy,Sadness,Analytical,Confident,Tentative,Negative,Positive"
     }
   },
   computed: {
-    dataToSave() {
+    dataToSave(): object {
       return this.$store.state.objectStorage
     },
-    userId() {
+    userId(): number {
       return this.$store.state.userId
     },
-    blocksArray() {
+    blocksArray(): any {
       return this.blocks ? this.blocks.split(",") : null
+    }
+  },
+  data () {
+    return {
+      autosave: false
     }
   },
   mounted() {
@@ -46,7 +52,7 @@ export default {
       handler () {
         this.$store.commit('saveState', false)
         if(this.autosave == true && this.dataToSave){
-          addResultRecords(this.dataToSave, this.userId, (value) => {
+          addResultRecords(this.dataToSave, this.userId, (value: any) => {
             this.$store.commit('saveState', value)
           })
         }
@@ -54,7 +60,7 @@ export default {
       deep: true
     }
   }
-}
+})
 </script>
 
 <style>
