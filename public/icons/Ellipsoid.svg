@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>ellipsoid</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="100.000045%" gradientTransform="translate(0.500000,0.000000),scale(1.000000,1.000000),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#58B688" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#58B688" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="ellipsoid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(55.000000, 55.000000)" fill="url(#radialGradient-1)" fill-rule="nonzero">
+            <path d="M45,0.36216 C20.18273,0.36216 1.00000001e-07,20.54499 1.00000001e-07,45.3622 C1.00000001e-07,70.1793 20.18273,90.3622 45,90.3622 C69.81727,90.3622 90,70.1793 90,45.3622 C90,20.54499 69.81727,0.36216 45,0.36216 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

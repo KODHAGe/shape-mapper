@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>octahedron</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="115.469891%" gradientTransform="translate(0.500000,0.000000),scale(1.000000,0.866027),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#58B688" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#58B688" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="octahedron" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(61.000000, 55.000000)" stroke="#FFFFFF">
+            <polygon id="Shape" fill="url(#radialGradient-1)" points="39 0.527 77.743 22.896 77.743 67.632 39 90 0.257 67.632 0.257 22.896"></polygon>
+            <polygon id="Shape" points="39 16.886 62.966 58.396 15.034 58.396"></polygon>
+            <polyline id="Shape" points="77.743 67.632 62.966 58.396 77.743 22.896 39 16.886 0.257 22.896 15.034 58.396"></polyline>
+            <path d="M39,0.527 L39,16.886" id="Shape"></path>
+            <polyline id="Shape" points="62.966 58.396 39 90 15.034 58.396 0.257 67.632"></polyline>
+        </g>
+    </g>
+</svg>

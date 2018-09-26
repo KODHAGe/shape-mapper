@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>cone</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="143.538816%" gradientTransform="translate(0.500000,0.000000),scale(1.000000,0.696676),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#58B688" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#58B688" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="cone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M99.5186888,140 C114.750542,140 127.037378,135.53206 127.037378,130.827104 C127.037378,126.122147 114.750542,121.654207 99.5186888,121.654207 C84.2868351,121.654207 72,126.122147 72,130.827104 C72,135.53206 84.2868351,140 99.5186888,140 Z M124.526862,124.088782 L99.5186888,61 L74.5105247,124.088782 C79.9304969,120.96081 89.1203486,119.03338 99.5186888,119.03338 C109.917029,119.03338 119.106881,120.96081 124.526862,124.088782 Z" id="Shape" fill="url(#radialGradient-1)"></path>
+    </g>
+</svg>

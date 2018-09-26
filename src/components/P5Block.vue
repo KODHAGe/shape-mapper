@@ -2,7 +2,11 @@
   <div class="p5block">
     <h3 class="attribute-title">{{title}} - <span class="attribute-definition">{{definition}}</span></h3>
     <h5 class="attribute-synonyms">Synonyms: {{synonyms}}</h5>
-    <vue-slider class="box-selector" ref="slider" v-model="blockSelection" v-bind="options"></vue-slider>
+    <vue-slider class="box-selector" ref="slider" v-model="blockSelection" v-bind="options">
+        <div class="slider-label" slot="label" slot-scope="{ label }">
+          <img class="slider-label--image" :src="'/icons/' + label + '.svg'">
+        </div>
+    </vue-slider>
     <P5BoxBlock :title="title" v-if="blockSelection == 'Box'"></P5BoxBlock>
     <P5ConeBlock :title="title" v-if="blockSelection == 'Cone'"></P5ConeBlock>
     <P5CylinderBlock :title="title" v-if="blockSelection == 'Cylinder'"></P5CylinderBlock>
@@ -90,12 +94,14 @@ export default Vue.extend({
         },
         tooltipStyle: [
           {
+            "color": "#000",
             "backgroundColor": "#6abe95",
-            "borderColor": "#6abe95;"
+            "borderColor": "transparent"
           },
           {
-            "backgroundColor": "#6abe95",
-            "borderColor": "#6abe95"
+            "color": "#000",
+            "backgroundColor": "transparent",
+            "borderColor": "transparent"
           }
         ],
         sliderStyle: [
@@ -154,5 +160,14 @@ export default Vue.extend({
   .box-selector {
     margin-left: 1em;
     margin-top: 3em;
+  }
+
+  .slider-label--image {
+    width: 50px;
+    margin-left: -22px;
+  }
+
+  .vue-slider-tooltip::before {
+    border-top-color: #000!important;
   }
 </style>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>cylinder</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="143.891712%" gradientTransform="translate(0.500000,0.000000),scale(1.000000,0.694967),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#58B688" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#58B688" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="100%" gradientTransform="translate(0.500000,0.000000),scale(0.455524,1.000000),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-2">
+            <stop stop-color="#58B688" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#58B688" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="cylinder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(65.000000, 50.000000)" fill-rule="nonzero">
+            <path d="M34.6371346,0 C15.5379926,0 0,7.49450903 0,16.70636 L0,82.97564 C0,92.187491 15.5379926,99.682 34.6371346,99.682 C53.7377136,99.682 69.2757062,92.187491 69.2757062,82.97564 L69.2757062,16.70636 C69.2757062,7.49450903 53.7362765,0 34.6371346,0 Z" id="Shape" fill="url(#radialGradient-1)"></path>
+            <path d="M34.9992641,0.5 C53.9908795,0.5 69.5,7.56490768 69.5,16.4878069 C69.5,25.4104789 53.9899172,32.4756138 34.9992641,32.4756138 C16.0088942,32.4756138 0.5,25.4105981 0.5,16.4878069 C0.5,7.56478843 16.007932,0.5 34.9992641,0.5 Z" id="Path" stroke="#FFFFFF" fill="url(#radialGradient-2)"></path>
+        </g>
+    </g>
+</svg>

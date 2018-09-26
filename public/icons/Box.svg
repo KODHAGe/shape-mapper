@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>box</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="100%" gradientTransform="translate(0.500000,0.000000),scale(0.991864,1.000000),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#58B688" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#58B688" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(58.000000, 58.000000)" fill="url(#radialGradient-1)" fill-rule="nonzero">
+            <path d="M42.998176,0.4852 L83.498176,18.2607 L42.998176,36.0049 L2.4981766,18.2607 L42.998176,0.4852 Z M0.9981766,19.7914 L41.998176,37.7855 L41.998176,83.8018 L0.9981766,65.8077 L0.9981766,19.7914 Z M84.998176,19.7914 L84.998176,65.8077 L43.998176,83.8018 L43.998176,37.7855 L84.998176,19.7914 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
