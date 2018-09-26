@@ -2,9 +2,10 @@
   <div class="p5block">
     <h3 class="attribute-title">{{title}} - <span class="attribute-definition">{{definition}}</span></h3>
     <h5 class="attribute-synonyms">Synonyms: {{synonyms}}</h5>
+    <p class="feature-title">Shape</p>
     <vue-slider class="box-selector" ref="slider" v-model="blockSelection" v-bind="options">
         <div class="slider-label" slot="label" slot-scope="{ label }">
-          <img class="slider-label--image" :src="'/icons/' + label + '.svg'">
+          <img  v-if="label != ''" class="slider-label--image" :src="'/icons/' + label + '.svg'">
         </div>
     </vue-slider>
     <P5BoxBlock :title="title" v-if="blockSelection == 'Box'"></P5BoxBlock>
@@ -63,12 +64,13 @@ export default Vue.extend({
       blockSelection: '',
       options: {
         width: "90%",
-        value: "Box",
+        value: "",
         tooltip: "always",
         disabled: false,
         piecewise: true,
         piecewiseLabel: true,
         data: [
+          "",
           "Box",
           "Cone",
           "Cylinder",
@@ -169,5 +171,15 @@ export default Vue.extend({
 
   .vue-slider-tooltip::before {
     border-top-color: #000!important;
+  }
+
+  .vue-slider-component.vue-slider-has-label {
+    margin-bottom: 2rem;
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    margin-bottom: -2rem;
   }
 </style>
