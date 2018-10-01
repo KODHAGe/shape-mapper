@@ -29,3 +29,13 @@ npm run wc
 ```
 npm run analyse
 ```
+
+### Creates a build & alias for now (if configured)
+```
+npm run now
+```
+
+### Does a full build & deploy
+```
+npm run publish
+```

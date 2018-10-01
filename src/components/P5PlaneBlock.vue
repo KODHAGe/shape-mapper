@@ -2,29 +2,23 @@
     <div class="p5block-wrapper">
       <div class="p5block-variables">
         <p>Rotation on the X-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRotX" :max=360 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRotX" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Rotation on the Y-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRotY" :max=360 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRotY" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>      
         <p>Rotation on the Z-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="bottom" :tooltip="false"></vue-slider>  
-        <!--<p>Position on the x-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueX" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider> 
-        <p>Position on the y-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueY" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-        <p>Position on the z-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueZ" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>-->   
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>  
         <p>Width</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueLength" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueLength" :min=50 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Length</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueWidth" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueWidth" :min=50 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Hue</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Lightness</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Opacity</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueOpacity" :min=0 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueOpacity" :min=0 :max=100 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Matte/Glossy</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueMatte" :min=0 :max=1 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueMatte" :min=0 :max=1 tooltip-dir="top" :tooltip="false"></vue-slider>
       </div>
       <P5Scene :sliderData="sliderData" :drawFunction="drawFunction" class="p5block-scene"></P5Scene>
   </div>
@@ -61,10 +55,9 @@ export default {
           p.specularMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
         }
         p.noStroke()
-        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
-        p.rotateY(this.sliderData.sliderValueRotY * 0.05)
-        p.rotateX(this.sliderData.sliderValueRotX * 0.05)
-        p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
+        p.rotateY(p.radians(this.sliderData.sliderValueRotY))
+        p.rotateX(p.radians(this.sliderData.sliderValueRotX))
+        p.rotateZ(p.radians(this.sliderData.sliderValueRotZ))
         p.plane(this.sliderData.sliderValueWidth, this.sliderData.sliderValueLength);
       p.pop()
     },
