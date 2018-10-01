@@ -6,13 +6,7 @@
         <p>Rotation on the Y-axis</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueRotY" :max=360 tooltip-dir="bottom" :tooltip="false"></vue-slider>      
         <p>Rotation on the Z-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="bottom" :tooltip="false"></vue-slider>  
-        <!--<p>Position on the x-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueX" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider> 
-        <p>Position on the y-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueY" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
-        <p>Position on the z-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueZ" :min=-150 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>-->   
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="bottom" :tooltip="false"></vue-slider>    
         <p>Width</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueLength" :min=50 :max=150 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Length</p>
@@ -23,6 +17,10 @@
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Lightness</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Opacity</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueOpacity" :min=0 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Matte/Glossy</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueMatte" :min=0 :max=1 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
       <P5Scene :sliderData="sliderData" :drawFunction="drawFunction" class="p5block-scene"></P5Scene>
   </div>
@@ -46,15 +44,19 @@ export default {
   methods: {
     drawFunction(p) {
       p.background(255)
-      p.directionalLight(0,0,100, 0, 0, -1)
-      p.directionalLight(0,0,100, 0, 0, 0)
+      let locX = p.mouseX - p.width / 2
+      let locY = p.mouseY - p.height / 2
+      p.pointLight(55, 255, 255, locX, locY, 100)
       p.ambientLight(0,0,100)
       p.colorMode(p.HSB)
 
       p.push()
-        p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
+        if(this.sliderData.sliderValueMatte === 0) {
+          p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
+        } else {
+          p.specularMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
+        }
         p.noStroke()
-        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
         p.rotateY(this.sliderData.sliderValueRotY * 0.05)
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
@@ -78,14 +80,13 @@ export default {
         sliderValueRotX: 180,
         sliderValueRotY: 180,
         sliderValueRotZ: 0,
-        /*sliderValueX: 0,
-        sliderValueY: 0,
-        sliderValueZ: 0,*/
         sliderValueLength: 100,
         sliderValueWidth: 100,
         sliderValueHeight: 100,
         sliderValueHue: 0,
-        sliderValueLightness: 100
+        sliderValueLightness: 100,
+        sliderValueOpacity: 100,
+        sliderValueMatte: 0
       }
     }
   }

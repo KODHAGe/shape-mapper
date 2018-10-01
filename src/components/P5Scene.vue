@@ -42,4 +42,7 @@ export default {
 </script>
 
 <style>
+  .p5scene {
+    min-width: 300px;
+  }
 </style>

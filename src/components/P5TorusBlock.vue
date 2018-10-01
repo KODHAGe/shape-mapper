@@ -21,6 +21,10 @@
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="bottom" :tooltip="false"></vue-slider>
         <p>Lightness</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueLightness" :min=50 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Opacity</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueOpacity" :min=0 :max=100 tooltip-dir="bottom" :tooltip="false"></vue-slider>
+        <p>Matte/Glossy</p>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueMatte" :min=0 :max=1 tooltip-dir="bottom" :tooltip="false"></vue-slider>
       </div>
       <P5Scene :sliderData="sliderData" :drawFunction="drawFunction" class="p5block-scene"></P5Scene>
   </div>
@@ -44,8 +48,9 @@ export default {
   methods: {
     drawFunction(p) {
       p.background(255)
-      p.directionalLight(0,0,100, 0, 0, -1)
-      p.directionalLight(0,0,100, 0, 0, 0)
+      let locX = p.mouseX - p.width / 2
+      let locY = p.mouseY - p.height / 2
+      p.pointLight(55, 255, 255, locX, locY, 100)
       p.ambientLight(0,0,100)
       p.colorMode(p.HSB)
 
@@ -82,7 +87,9 @@ export default {
         sliderValueLength: 100,
         sliderValueWidth: 100,
         sliderValueHue: 0,
-        sliderValueLightness: 100
+        sliderValueLightness: 100,
+        sliderValueOpacity: 100,
+        sliderValueMatte: 0
       }
     }
   }
