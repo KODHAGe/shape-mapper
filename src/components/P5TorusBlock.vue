@@ -6,15 +6,9 @@
         <p>Rotation on the Y-axis</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueRotY" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>      
         <p>Rotation on the Z-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>  
-        <!--<p>Position on the x-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueX" :min=-150 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider> 
-        <p>Position on the y-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueY" :min=-150 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
-        <p>Position on the z-axis</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueZ" :min=-150 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>-->   
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>    
         <p>Radius</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=50 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=25 :max=75 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Height</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Hue</p>
@@ -57,7 +51,6 @@ export default {
       p.push()
         p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
         p.noStroke()
-        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
         p.rotateY(this.sliderData.sliderValueRotY * 0.05)
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
@@ -78,14 +71,11 @@ export default {
   data () {
     return {
       sliderData: {
-        sliderValueRotX: 180,
-        sliderValueRotY: 180,
+        sliderValueRotX: 0,
+        sliderValueRotY: 0,
         sliderValueRotZ: 0,
-        /*sliderValueX: 0,
-        sliderValueY: 0,
-        sliderValueZ: 0,*/
-        sliderValueLength: 100,
-        sliderValueWidth: 100,
+        sliderValueRadius: 50,
+        sliderValueHeight: 100,
         sliderValueHue: 0,
         sliderValueLightness: 100,
         sliderValueOpacity: 100,

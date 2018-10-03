@@ -8,7 +8,7 @@
         <p>Rotation on the Z-axis</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>   
         <p>Scale</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueScale" :min=3 :max=10 tooltip-dir="top" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueScale" :min=25 :max=75 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Lightness</p>
@@ -56,11 +56,10 @@ export default {
           p.specularMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
         }
         p.noStroke()
-        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
         p.rotateY(p.radians(this.sliderData.sliderValueRotY))
         p.rotateX(p.radians(this.sliderData.sliderValueRotX))
         p.rotateZ(p.radians(this.sliderData.sliderValueRotZ))
-        p.scale(this.sliderData.sliderValueScale)
+        p.scale(this.sliderData.sliderValueScale/10)
         p.model(this.preloadedModel)
       p.pop()
     },
@@ -78,10 +77,10 @@ export default {
   data () {
     return {
       sliderData: {
-        sliderValueRotX: 180,
-        sliderValueRotY: 180,
+        sliderValueRotX: 0,
+        sliderValueRotY: 0,
         sliderValueRotZ: 0,
-        sliderValueScale: 5,
+        sliderValueScale: 50,
         sliderValueHue: 0,
         sliderValueLightness: 100,
         sliderValueOpacity: 100,

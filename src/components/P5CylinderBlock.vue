@@ -8,9 +8,9 @@
         <p>Rotation on the Z-axis</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>   
         <p>Radius</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=50 :max=100 tooltip-dir="top" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=25 :max=75 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Height</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=250 tooltip-dir="top" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Lightness</p>
@@ -76,10 +76,10 @@ export default {
   data () {
     return {
       sliderData: {
-        sliderValueRotX: 180,
-        sliderValueRotY: 180,
+        sliderValueRotX: 0,
+        sliderValueRotY: 0,
         sliderValueRotZ: 0,
-        sliderValueRadius: 100,
+        sliderValueRadius: 50,
         sliderValueHeight: 100,
         sliderValueHue: 0,
         sliderValueLightness: 100,

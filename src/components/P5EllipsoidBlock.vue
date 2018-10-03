@@ -78,10 +78,11 @@ export default {
   data () {
     return {
       sliderData: {
-        sliderValueRotX: 180,
-        sliderValueRotY: 180,
+        sliderValueRotX: 0,
+        sliderValueRotY: 0,
         sliderValueRotZ: 0,
-        sliderValueRadius: 100,
+        sliderValueLength: 100,
+        sliderValueWidth: 100,
         sliderValueHeight: 100,
         sliderValueHue: 0,
         sliderValueLightness: 100,
