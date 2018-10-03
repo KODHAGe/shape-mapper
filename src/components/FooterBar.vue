@@ -22,9 +22,7 @@ export default {
   },
   methods: {
     saveRecord() {
-      console.log(this.dataToSave)
       if(this.dataToSave){
-        console.log('save')
         addResultRecords(this.dataToSave, this.userId)
       } else {
         // Handle 'no changes' case

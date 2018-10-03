@@ -74,17 +74,18 @@ export default {
     this.updateObjectStorage(storageObject)
   },
   data () {
+    let storage = this.$store.state.objectStorage[0]
     return {
       sliderData: {
-        sliderValueRotX: 0,
-        sliderValueRotY: 0,
-        sliderValueRotZ: 0,
-        sliderValueRadius: 50,
-        sliderValueHeight: 100,
-        sliderValueHue: 0,
-        sliderValueLightness: 100,
-        sliderValueOpacity: 100,
-        sliderValueMatte: 0
+        sliderValueRotX: storage ? storage.data.sliderValueRotX : 0,
+        sliderValueRotY: storage ? storage.data.data.sliderValueRotY : 0,
+        sliderValueRotZ: storage ? storage.data.sliderValueRotZ : 0,
+        sliderValueRadius: storage ? storage.data.sliderValueRadius : 50,
+        sliderValueHeight: storage ? storage.data.sliderValueHeight : 100,
+        sliderValueHue: storage ? storage.data.sliderValueHue : 0 ,
+        sliderValueLightness: storage ? storage.data.sliderValueLightness : 100,
+        sliderValueOpacity: storage ? storage.data.sliderValueOpacity : 100,
+        sliderValueMatte: storage ? storage.data.sliderValueMatte : 0
       }
     }
   }
