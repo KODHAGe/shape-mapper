@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Instructions v-if="instructions"></Instructions>
     <P5Block v-for="item in blocksArray" :title="item" :key="item"></P5Block>
     <FooterBar></FooterBar>
   </div>
@@ -9,6 +10,7 @@
 
 import Vue from 'vue'
 import store from './store'
+import Instructions from './components/Instructions.vue'
 import P5Block from './components/P5Block.vue'
 import FooterBar from './components/FooterBar.vue'
 import { anonymousSignOn, addResultRecords } from './api/firebase'
@@ -17,6 +19,7 @@ export default Vue.extend({
   store,
   name: 'app',
   components: {
+    Instructions,
     P5Block,
     FooterBar
   },
@@ -24,6 +27,10 @@ export default Vue.extend({
     blocks: {
       type: String,
       default: "Anger,Fear,Joy,Sadness,Analytical,Confident,Tentative,Negative,Positive"
+    },
+    instructions: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
