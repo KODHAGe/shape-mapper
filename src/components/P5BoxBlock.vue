@@ -87,7 +87,9 @@ export default {
         sliderValueHue: storage ? storage.data.sliderValueHue : 0 ,
         sliderValueLightness: storage ? storage.data.sliderValueLightness : 100,
         sliderValueOpacity: storage ? storage.data.sliderValueOpacity : 100,
-        sliderValueMatte: storage ? storage.data.sliderValueMatte : 0
+        sliderValueMatte: storage ? storage.data.sliderValueMatte : 0,
+        sliderValueRadius: false,
+        sliderValueScale: false
       }
     }
   }

@@ -10,20 +10,26 @@ const store = new Vuex.Store({
     saveState: <Boolean> false
   },
   mutations: {
+    // This updates the current stored object
     updateObjectStorage (state, newObject) {
-      let pos = state.objectStorage.map(function(e) { 
+
+      // Just in case of several objects to store
+      let pos = state.objectStorage.map(function(e) {
         return e.title
       }).indexOf(newObject.title)
+
       if(pos === -1) {
         state.objectStorage.push(newObject)
       } else {
         state.objectStorage[pos] = newObject
       }
+      
     },
     setUser (state, id) {
       state.userId = id;
     },
     saveState (state, saveState) {
+      // Whether or not data is currently saved into firebase
       state.saveState = saveState
     }
   }
