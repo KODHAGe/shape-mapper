@@ -23,7 +23,8 @@ export default {
   methods: {
     saveRecord() {
       if(this.dataToSave){
-        addResultRecords(this.dataToSave, this.userId)
+        this.dataToSave[0]['completed'] = true
+        addResultRecords(this.dataToSave, this.userId, () => { /*Handle save event, modal or popup or something*/ })
       } else {
         // Handle 'no changes' case
       }

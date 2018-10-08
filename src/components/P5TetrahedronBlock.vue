@@ -44,12 +44,22 @@ export default {
       this.preloadedModel = model
     },
     drawFunction(p) {
+      // Scene
       p.background(100)
+
+      // Positions
       let locX = p.mouseX - p.width / 2
       let locY = p.mouseY - p.height / 2
-      p.pointLight(55, 255, 255, locX, locY, 100)
+      this.posX += p.cos(p.millis() / 1000) * 2
+      this.posY += p.sin(p.millis() / 1000) * 1.2
+      this.posZ += p.sin(p.millis() / 1000) * 1.2
+
+      // Lights & color
       p.ambientLight(0,0,100)
       p.colorMode(p.HSB)
+      p.pointLight(55, 255, 255, locX, locY, 100)
+      p.pointLight(55, 255, 255, this.posX, this.posY, this.posZ)
+
       p.push()
         if(this.sliderData.sliderValueMatte === 0) {
           p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)

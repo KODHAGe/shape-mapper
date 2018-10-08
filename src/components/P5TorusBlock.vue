@@ -42,18 +42,27 @@ export default {
   methods: {
     drawFunction(p) {
       p.background(255)
+      
       let locX = p.mouseX - p.width / 2
       let locY = p.mouseY - p.height / 2
-      p.pointLight(55, 255, 255, locX, locY, 100)
+      this.posX += p.cos(p.millis() / 1000) * 2
+      this.posY += p.sin(p.millis() / 1000) * 1.2
+      this.posZ += p.sin(p.millis() / 1000) * 1.2
       p.ambientLight(0,0,100)
       p.colorMode(p.HSB)
+      p.pointLight(55, 255, 255, locX, locY, 100)
+      p.pointLight(55, 255, 255, this.posX, this.posY, this.posZ)
 
       p.push()
-        p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness)
+        if(this.sliderData.sliderValueMatte === 0) {
+          p.ambientMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
+        } else {
+          p.specularMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
+        }
         p.noStroke()
-        p.rotateY(this.sliderData.sliderValueRotY * 0.05)
-        p.rotateX(this.sliderData.sliderValueRotX * 0.05)
-        p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
+        p.rotateY(p.radians(this.sliderData.sliderValueRotY))
+        p.rotateX(p.radians(this.sliderData.sliderValueRotX))
+        p.rotateZ(p.radians(this.sliderData.sliderValueRotZ))
         p.torus(this.sliderData.sliderValueHeight, this.sliderData.sliderValueRadius, 50, 50)
       p.pop()
     },
@@ -62,7 +71,6 @@ export default {
     }
   },
   updated () {
-    console.log(this.sliderData)
     let storageObject = {
       title: this.title,
       data: this.sliderData
@@ -85,7 +93,10 @@ export default {
         sliderValueScale: null,
         sliderValueWidth: null,
         sliderValueLength: null
-      }
+      },
+      posX: 30,
+      posY: 60,
+      posZ: 120
     }
   }
 }
