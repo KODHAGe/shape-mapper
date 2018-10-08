@@ -98,7 +98,10 @@ export default {
         sliderValueScale: null,
         sliderValueWidth: null,
         sliderValueLength: null
-      }
+      },
+      posX: 30,
+      posY: 60,
+      posZ: 120
     }
   }
 }

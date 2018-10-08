@@ -99,7 +99,10 @@ export default {
         sliderValueMatte: storage ? storage.data.sliderValueMatte : 0,
         sliderValueRadius: null,
         sliderValueScale: null
-      }
+      },
+      posX: 30,
+      posY: 60,
+      posZ: 120
     }
   }
 }
