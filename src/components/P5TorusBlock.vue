@@ -62,6 +62,7 @@ export default {
     }
   },
   updated () {
+    console.log(this.sliderData)
     let storageObject = {
       title: this.title,
       data: this.sliderData
@@ -72,15 +73,15 @@ export default {
     let storage = this.$store.state.objectStorage[0]
     return {
       sliderData: {
-        sliderValueRotX: storage ? storage.data.sliderValueRotX : 0,
-        sliderValueRotY: storage ? storage.data.sliderValueRotY : 0,
-        sliderValueRotZ: storage ? storage.data.sliderValueRotZ : 0,
-        sliderValueRadius: storage ? storage.data.sliderValueRadius : 25,
-        sliderValueHeight: storage ? storage.data.sliderValueHeight : 50,
-        sliderValueHue: storage ? storage.data.sliderValueHue : 0 ,
-        sliderValueLightness: storage ? storage.data.sliderValueLightness : 100,
-        sliderValueOpacity: storage ? storage.data.sliderValueOpacity : 100,
-        sliderValueMatte: storage ? storage.data.sliderValueMatte : 0,
+        sliderValueRotX: storage ? (storage.data.sliderValueRotX ? storage.data.sliderValueRotX : 0) : 0,
+        sliderValueRotY: storage ? (storage.data.sliderValueRotY ? storage.data.sliderValueRotY : 0) : 0,
+        sliderValueRotZ: storage ? (storage.data.sliderValueRotZ ? storage.data.sliderValueRotZ: 0) : 0,
+        sliderValueRadius: storage ? (storage.data.sliderValueRadius ? storage.data.sliderValueRadius : 25) : 25,
+        sliderValueHeight: storage ? (storage.data.sliderValueHeight ? storage.data.sliderValueHeight: 50) : 50,
+        sliderValueHue: storage ? (storage.data.sliderValueHue ? storage.data.sliderValueHue: 0) : 0,
+        sliderValueLightness: storage ? (storage.data.sliderValueLightness ? storage.data.sliderValueLightness : 100) : 100,
+        sliderValueOpacity: storage ? (storage.data.sliderValueOpacity ? storage.data.sliderValueOpacity : 100) : 100,
+        sliderValueMatte: storage ? (storage.data.sliderValueMatte ? storage.data.sliderValueMatte : 0) : 0,
         sliderValueScale: null,
         sliderValueWidth: null,
         sliderValueLength: null

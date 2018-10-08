@@ -61,7 +61,7 @@ export default {
         p.rotateY(p.radians(this.sliderData.sliderValueRotY))
         p.rotateX(p.radians(this.sliderData.sliderValueRotX))
         p.rotateZ(p.radians(this.sliderData.sliderValueRotZ))
-        p.ellipsoid(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength, 50, 50);
+        p.ellipsoid(this.sliderData.sliderValueWidth, this.sliderData.sliderValueHeight, this.sliderData.sliderValueLength, 24, 24);
       p.pop()
     },
     updateObjectStorage (storageObject) {
