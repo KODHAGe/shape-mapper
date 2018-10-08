@@ -1058,7 +1058,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .vue-slider-component {
     position: relative;
     box-sizing: border-box;
@@ -1070,9 +1070,6 @@
   .vue-slider-component.vue-slider-disabled {
     opacity: .5;
     cursor: not-allowed;
-  }
-  .vue-slider-component.vue-slider-has-label {
-    margin-bottom: 15px;
   }
   .vue-slider-component.vue-slider-disabled .vue-slider-dot {
     cursor: not-allowed;

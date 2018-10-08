@@ -8,9 +8,9 @@
         <p>Rotation on the Z-axis</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueRotZ" :max=360 tooltip-dir="top" :tooltip="false"></vue-slider>    
         <p>Radius</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=25 :max=75 tooltip-dir="top" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=0 :max=50 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Height</p>
-        <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=50 :max=150 tooltip-dir="top" :tooltip="false"></vue-slider>
+        <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=25 :max=75 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Lightness</p>
@@ -54,7 +54,7 @@ export default {
         p.rotateY(this.sliderData.sliderValueRotY * 0.05)
         p.rotateX(this.sliderData.sliderValueRotX * 0.05)
         p.rotateZ(this.sliderData.sliderValueRotZ * 0.05)
-        p.torus(this.sliderData.sliderValueRadius, this.sliderData.sliderValueHeight, 50, 50)
+        p.torus(this.sliderData.sliderValueHeight, this.sliderData.sliderValueRadius, 50, 50)
       p.pop()
     },
     updateObjectStorage (storageObject) {
@@ -75,22 +75,22 @@ export default {
         sliderValueRotX: storage ? storage.data.sliderValueRotX : 0,
         sliderValueRotY: storage ? storage.data.sliderValueRotY : 0,
         sliderValueRotZ: storage ? storage.data.sliderValueRotZ : 0,
-        sliderValueRadius: storage ? storage.data.sliderValueRadius : 50,
-        sliderValueHeight: storage ? storage.data.sliderValueHeight : 100,
+        sliderValueRadius: storage ? storage.data.sliderValueRadius : 25,
+        sliderValueHeight: storage ? storage.data.sliderValueHeight : 50,
         sliderValueHue: storage ? storage.data.sliderValueHue : 0 ,
         sliderValueLightness: storage ? storage.data.sliderValueLightness : 100,
         sliderValueOpacity: storage ? storage.data.sliderValueOpacity : 100,
         sliderValueMatte: storage ? storage.data.sliderValueMatte : 0,
-        sliderValueScale: false,
-        sliderValueWidth: false,
-        sliderValueLength: false
+        sliderValueScale: null,
+        sliderValueWidth: null,
+        sliderValueLength: null
       }
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;

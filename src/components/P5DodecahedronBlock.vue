@@ -79,24 +79,24 @@ export default {
     return {
       sliderData: {
         sliderValueRotX: storage ? storage.data.sliderValueRotX : 0,
-        sliderValueRotY: storage ? storage.data.data.sliderValueRotY : 0,
+        sliderValueRotY: storage ? storage.data.sliderValueRotY : 0,
         sliderValueRotZ: storage ? storage.data.sliderValueRotZ : 0,
         sliderValueScale: storage ? storage.data.sliderValueScale : 50,
         sliderValueHue: storage ? storage.data.sliderValueHue : 0 ,
         sliderValueLightness: storage ? storage.data.sliderValueLightness : 100,
         sliderValueOpacity: storage ? storage.data.sliderValueOpacity : 100,
         sliderValueMatte: storage ? storage.data.sliderValueMatte : 0,
-        sliderValueRadius: false,
-        sliderValueHeight: false,
-        sliderValueWidth: false,
-        sliderValueLength: false
+        sliderValueRadius: null,
+        sliderValueHeight: null,
+        sliderValueWidth: null,
+        sliderValueLength: null
       }
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;

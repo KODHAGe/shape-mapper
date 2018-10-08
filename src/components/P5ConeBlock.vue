@@ -55,7 +55,6 @@ export default {
           p.specularMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
         }
         p.noStroke()
-        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
         p.rotateY(p.radians(this.sliderData.sliderValueRotY))
         p.rotateX(p.radians(this.sliderData.sliderValueRotX))
         p.rotateZ(p.radians(this.sliderData.sliderValueRotZ))
@@ -86,16 +85,16 @@ export default {
         sliderValueLightness: storage ? storage.data.sliderValueLightness : 100,
         sliderValueOpacity: storage ? storage.data.sliderValueOpacity : 100,
         sliderValueMatte: storage ? storage.data.sliderValueMatte : 0,
-        sliderValueScale: false,
-        sliderValueWidth: false,
-        sliderValueLength: false
+        sliderValueScale: null,
+        sliderValueWidth: null,
+        sliderValueLength: null
       }
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;
