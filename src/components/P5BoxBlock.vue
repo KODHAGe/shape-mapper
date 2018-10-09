@@ -108,7 +108,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .p5block-wrapper {
     margin: 1rem;
     display: flex;
@@ -122,8 +122,7 @@ export default {
     flex-grow: 0.8;
     align-self: center;
   }
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  .p5block-scene {
+    min-width: 300px;
   }
 </style>

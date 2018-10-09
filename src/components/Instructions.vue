@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .instruction-title {
     margin: 1rem;
     margin-bottom: 0.5rem;

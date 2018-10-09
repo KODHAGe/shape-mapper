@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     preloadFunction(p) {
-      let model = p.loadModel('/models/Tetrahedron.obj')
+      let model = p.loadModel(this.url)
       this.preloadedModel = model
     },
     drawFunction(p) {
@@ -106,6 +106,11 @@ export default {
       posY: 60,
       posZ: 120
     }
+  },
+  computed: {
+    url() {
+      return 'https://' + process.env.VUE_APP_URL + '/models/Tetrahedron.obj'
+    }
   }
 }
 </script>
@@ -124,11 +129,7 @@ export default {
     flex-grow: 0.8;
     align-self: center;
   }
-  .p5scene {
-    align-self: center;
-  }
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  .p5block-scene {
+    min-width: 300px;
   }
 </style>

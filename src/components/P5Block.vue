@@ -5,7 +5,7 @@
     <p class="feature-title">Shape</p>
     <vue-slider class="box-selector" ref="slider" v-model="blockSelection" v-bind="options">
         <div class="slider-label" slot="label" slot-scope="{ label }">
-          <img  v-if="label != ''" class="slider-label--image" :src="'../icons/' + label + '.svg'">
+          <img  v-if="label != ''" class="slider-label--image" :src="url + label + '.svg'">
         </div>
     </vue-slider>
     <P5BoxBlock :title="title" v-if="blockSelection == 'Box'"></P5BoxBlock>
@@ -118,6 +118,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    url(): String | undefined {
+      return 'https://' + process.env.VUE_APP_URL + '/icons/'
+    },
     definition(): String {
       let key = this.title.toLowerCase()
       return dictionary[key].definition

@@ -26,7 +26,7 @@
 
 <script>
 import P5Scene from './P5Scene.vue'
-import vueSlider from './VueSliderComponent'
+import vueSlider from './VueSliderComponent.vue'
 
 export default {
   name: 'P5CylinderBlock',
@@ -64,7 +64,6 @@ export default {
           p.specularMaterial(this.sliderData.sliderValueHue, 65, this.sliderData.sliderValueLightness, this.sliderData.sliderValueOpacity/100)
         }
         p.noStroke()
-        /*p.translate(this.sliderData.sliderValueX, this.sliderData.sliderValueY, this.sliderData.sliderValueZ)*/
         p.rotateY(p.radians(this.sliderData.sliderValueRotY))
         p.rotateX(p.radians(this.sliderData.sliderValueRotX))
         p.rotateZ(p.radians(this.sliderData.sliderValueRotZ))
@@ -114,18 +113,14 @@ export default {
     flex-grow: 1;
     flex-flow: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
   }
   .p5block-variables {
     font-size: 1.1rem;
     flex-grow: 0.8;
     align-self: center;
   }
-  .p5scene {
-    align-self: center;
-  }
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  .p5block-scene {
+    min-width: 300px;
   }
 </style>
