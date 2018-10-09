@@ -108,21 +108,5 @@ export default {
 }
 </script>
 
-<style>
-  .p5block-wrapper {
-    margin: 1rem;
-    display: flex;
-    flex-grow: 1;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .p5block-variables {
-    font-size: 1.1rem;
-    flex-grow: 0.8;
-    align-self: center;
-  }
-  .p5block-scene {
-    min-width: 300px;
-  }
+<style scoped>
 </style>

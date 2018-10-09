@@ -97,4 +97,28 @@ export default Vue.extend({
   box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
 }
 
+/* HACK: Common styles for shape blocks */
+.p5block-wrapper {
+  margin: 1rem;
+  display: flex;
+  flex-grow: 1;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p5block-variables {
+  font-size: 1.1rem;
+  flex-grow: 0.8;
+  align-self: center;
+}
+
+.p5block-scene {
+  min-width: 300px;
+}
+
+.p5_loading {
+  display: none;
+}
+
 </style>
