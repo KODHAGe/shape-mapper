@@ -1,6 +1,9 @@
 <template>
   <div class="footer">
-    <div class="save-button box-shadow-2" v-bind:class="{saved: saveState}" v-on:click="saveRecord">Submit answers</div>
+    <div class="save-button box-shadow-2" v-bind:class="{saved: saveState}" v-on:click="saveRecord">
+      <div v-if="completed" class="saved-message">Response saved 🎉</div>
+      <div v-if="!completed" class="submit-message">Submit answers</div>
+    </div>
   </div>
 </template>
 
@@ -20,13 +23,28 @@ export default {
       return this.$store.state.saveState
     }
   },
+  data () {
+    return {
+      completed: false
+    }  
+  },
+  updated () {
+    this.resetCompleted()
+  },
   methods: {
     saveRecord() {
       if(this.dataToSave){
         this.dataToSave[0]['completed'] = true
-        addResultRecords(this.dataToSave, this.userId, () => { /*Handle save event, modal or popup or something*/ })
+        addResultRecords(this.dataToSave, this.userId, () => {
+          this.completed = true
+        })
       } else {
         // Handle 'no changes' case
+      }
+    },
+    resetCompleted() {
+      if(this.completed && !this.saveState) {
+        this.completed = false
       }
     }
   }
@@ -43,6 +61,7 @@ export default {
     display: flex;
     flex-flow: column;
   }
+
   .save-button {
     background-color: gainsboro;
     align-self: flex-end;
