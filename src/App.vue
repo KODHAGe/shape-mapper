@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
     <Instructions v-if="instructions"></Instructions>
     <P5Block v-for="item in blocksArray" :title="item" :key="item"></P5Block>
     <FooterBar></FooterBar>
@@ -72,7 +73,6 @@ export default Vue.extend({
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Amiri:400,400i,700,700i');
 
 #app {
   width: 100%;
