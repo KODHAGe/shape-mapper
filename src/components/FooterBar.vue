@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="save-button box-shadow-2" v-bind:class="{saved: saveState}" v-on:click="saveRecord">
       <div v-if="completed" class="saved-message">Response saved 🎉</div>
-      <div v-if="!completed" class="submit-message">Submit answers</div>
+      <div v-if="!completed" class="submit-message">Confirm answer</div>
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
     }  
   },
   updated () {
-    this.resetCompleted()
+    this.resetCompletedState()
   },
   methods: {
     saveRecord() {
@@ -42,7 +42,7 @@ export default {
         // Handle 'no changes' case
       }
     },
-    resetCompleted() {
+    resetCompletedState() {
       if(this.completed && !this.saveState) {
         this.completed = false
       }
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .footer {
     position: fixed;
     bottom: 0;

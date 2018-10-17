@@ -110,7 +110,7 @@ export default Vue.extend({
 .p5block-variables {
   font-size: 1.1rem;
   flex-grow: 0.8;
-  align-self: center;
+  align-self: end;
 }
 
 .p5block-scene {

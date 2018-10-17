@@ -11,6 +11,8 @@
         <vue-slider ref="slider" v-model="sliderData.sliderValueRadius" :min=0 :max=50 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Height</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHeight" :min=25 :max=75 tooltip-dir="top" :tooltip="false"></vue-slider>
+      </div>
+      <div class="p5block-variables">
         <p>Hue</p>
         <vue-slider ref="slider" v-model="sliderData.sliderValueHue" :min=0 :max=255 tooltip-dir="top" :tooltip="false"></vue-slider>
         <p>Lightness</p>
