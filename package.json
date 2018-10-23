@@ -1,6 +1,6 @@
 {
   "name": "shape-mapper",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,7 +9,7 @@
     "wc": "vue-cli-service  build --target wc --name shape-mapper src/App.vue --dest dist/component/",
     "analyse": "vue-cli-service build --bundle-analyser",
     "now": "now ./dist -A ../now.json --public && now alias",
-    "publish": "npm run build && npm run wc && npm run now"
+    "publish": "VUE_APP_ENV=prod npm run build && npm run wc && npm run now"
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.4",
@@ -54,6 +54,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 11"
   ]
 }

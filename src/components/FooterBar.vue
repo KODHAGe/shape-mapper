@@ -51,12 +51,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .footer {
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 50%;
+    min-width: 200px;
     height: auto;
     display: flex;
     flex-flow: column;

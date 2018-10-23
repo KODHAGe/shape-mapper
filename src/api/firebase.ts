@@ -6,6 +6,8 @@ import 'firebase/firestore'
 import 'firebase/auth'
 import debounce from 'lodash/debounce'
 
+const env = process.env.VUE_APP_ENV
+
 // Config
 const config = {
   apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
@@ -44,7 +46,11 @@ let addResultRecords = debounce((resultArray: Array<any>, userId: Number, callba
     resultArray.forEach((resultObject: any) => {
       resultObject['userId'] = userId
       let docId = userId + resultObject.title.toLowerCase().replace(/\s/g,'')
-      let set = db.collection("results").doc(docId).set(resultObject)
+      if(env === 'dev') {
+        var set = db.collection("results_dev").doc(docId).set(resultObject)
+      } else {
+        var set = db.collection("results").doc(docId).set(resultObject)
+      }
       setArray.push(set)
     })
     Promise.all(setArray).then(() =>  {
