@@ -8,16 +8,16 @@
           <img  v-if="label != ''" class="slider-label--image" :src="url + label + '.svg'">
         </div>
     </vue-slider>
-    <P5BoxBlock :title="title" v-if="blockSelection == 'Box'"></P5BoxBlock>
-    <P5ConeBlock :title="title" v-if="blockSelection == 'Cone'"></P5ConeBlock>
-    <P5CylinderBlock :title="title" v-if="blockSelection == 'Cylinder'"></P5CylinderBlock>
-    <P5DodecahedronBlock :title="title" v-if="blockSelection == 'Dodecahedron'"></P5DodecahedronBlock>
-    <P5EllipsoidBlock :title="title" v-if="blockSelection == 'Ellipsoid'"></P5EllipsoidBlock>
-    <P5IcosahedronBlock :title="title" v-if="blockSelection == 'Icosahedron'"></P5IcosahedronBlock>
-    <P5OctahedronBlock :title="title" v-if="blockSelection == 'Octahedron'"></P5OctahedronBlock>
-    <P5PlaneBlock :title="title" v-if="blockSelection == 'Plane'"></P5PlaneBlock>
-    <P5TetrahedronBlock :title="title" v-if="blockSelection == 'Tetrahedron'"></P5TetrahedronBlock>
-    <P5TorusBlock :title="title" v-if="blockSelection == 'Torus'"></P5TorusBlock>
+    <P5BoxBlock :title="title" :index="index" v-if="blockSelection == 'Box'"></P5BoxBlock>
+    <P5ConeBlock :title="title" :index="index" v-if="blockSelection == 'Cone'"></P5ConeBlock>
+    <P5CylinderBlock :title="title" :index="index" v-if="blockSelection == 'Cylinder'"></P5CylinderBlock>
+    <P5DodecahedronBlock :title="title" :index="index" v-if="blockSelection == 'Dodecahedron'"></P5DodecahedronBlock>
+    <P5EllipsoidBlock :title="title" :index="index" v-if="blockSelection == 'Ellipsoid'"></P5EllipsoidBlock>
+    <P5IcosahedronBlock :title="title" :index="index" v-if="blockSelection == 'Icosahedron'"></P5IcosahedronBlock>
+    <P5OctahedronBlock :title="title" :index="index" v-if="blockSelection == 'Octahedron'"></P5OctahedronBlock>
+    <P5PlaneBlock :title="title" :index="index" v-if="blockSelection == 'Plane'"></P5PlaneBlock>
+    <P5TetrahedronBlock :title="title" :index="index" v-if="blockSelection == 'Tetrahedron'"></P5TetrahedronBlock>
+    <P5TorusBlock :title="title" :index="index" v-if="blockSelection == 'Torus'"></P5TorusBlock>
   </div>
 </template>
 
@@ -38,6 +38,7 @@ import P5TorusBlock from './P5TorusBlock.vue'
 import vueSlider from './VueSliderComponent.vue'
 
 import dictionary from '../assets/dictionary.json'
+import { common } from '../assets/blockCommons'
 
 export default Vue.extend({
   name: 'P5Block',
@@ -54,11 +55,7 @@ export default Vue.extend({
     P5TetrahedronBlock,
     vueSlider
   },
-  props: {
-    title: {
-      type: String
-    }
-  },
+  props: common.props,
   data () {
     return {
       blockSelection: '',

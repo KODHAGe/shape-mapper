@@ -2,7 +2,7 @@
   <div id="app">
     <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
     <Instructions v-if="instructions"></Instructions>
-    <P5Block v-for="item in blocksArray" :title="item" :key="item"></P5Block>
+    <P5Block v-for="(item, index) in blocksArray" :index="index" :title="item" :key="item"></P5Block>
     <FooterBar></FooterBar>
   </div>
 </template>
@@ -61,6 +61,7 @@ export default Vue.extend({
       handler () {
         this.$store.commit('saveState', false)
         if(this.autosave == true && this.dataToSave){
+          console.log(this.dataToSave)
           addResultRecords(this.dataToSave, this.userId, (value: any) => {
             this.$store.commit('saveState', value)
           })

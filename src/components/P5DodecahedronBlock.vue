@@ -27,6 +27,7 @@
 <script>
 import P5Scene from './P5Scene.vue'
 import vueSlider from './VueSliderComponent'
+import { common } from '../assets/blockCommons'
 
 export default {
   name: 'P5DodecahedronBlock',
@@ -34,11 +35,7 @@ export default {
     P5Scene,
     vueSlider
   },
-  props: {
-    title: {
-      type: String
-    }
-  },
+  props: common.props,
   methods: {
     preloadFunction(p) {
       let model = p.loadModel(this.url)
@@ -87,7 +84,7 @@ export default {
     this.updateObjectStorage(storageObject)
   },
   data () {
-    let storage = this.$store.state.objectStorage[0]
+    let storage = this.$store.state.objectStorage[this.index]
     return {
       sliderData: {
         sliderValueRotX: storage ? storage.data.sliderValueRotX : 0,
