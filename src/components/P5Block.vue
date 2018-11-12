@@ -130,7 +130,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style>
   .p5block {
     border: 1px solid #eee;
     margin-bottom: 0.5rem;

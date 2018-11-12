@@ -76,6 +76,7 @@ export default {
   updated () {
     let storageObject = {
       title: this.title,
+      shape: 'Cone',
       data: this.sliderData
     }
     this.updateObjectStorage(storageObject)
