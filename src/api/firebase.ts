@@ -8,7 +8,7 @@ import 'firebase/auth'
 
 import debounce from 'lodash/debounce'
 
-const env = process.env.VUE_APP_ENV
+const env = (window.location.hostname === 'localhost') ? 'local' : 'prod'
 
 // Config
 const config = {
@@ -49,7 +49,7 @@ let addResultRecords = debounce((resultArray: Array<any>, userId: Number, callba
       resultObject['userId'] = userId
       resultObject['modified'] = firebase.firestore.Timestamp.now()
       let docId = userId + resultObject.title.toLowerCase().replace(/\s/g,'')
-      if(env === 'dev') {
+      if(env === 'local') {
         var set = db.collection("results_dev").doc(docId).set(resultObject)
       } else {
         var set = db.collection("results").doc(docId).set(resultObject)
