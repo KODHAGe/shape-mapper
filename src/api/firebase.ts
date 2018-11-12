@@ -2,8 +2,10 @@
 
 // Firebase libs
 import firebase from 'firebase/app'
+import 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+
 import debounce from 'lodash/debounce'
 
 const env = process.env.VUE_APP_ENV
@@ -45,6 +47,7 @@ let addResultRecords = debounce((resultArray: Array<any>, userId: Number, callba
     let setArray = <Array<any>> []
     resultArray.forEach((resultObject: any) => {
       resultObject['userId'] = userId
+      resultObject['modified'] = firebase.firestore.Timestamp.now()
       let docId = userId + resultObject.title.toLowerCase().replace(/\s/g,'')
       if(env === 'dev') {
         var set = db.collection("results_dev").doc(docId).set(resultObject)

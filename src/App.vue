@@ -61,7 +61,6 @@ export default Vue.extend({
       handler () {
         this.$store.commit('saveState', false)
         if(this.autosave == true && this.dataToSave){
-          console.log(this.dataToSave)
           addResultRecords(this.dataToSave, this.userId, (value: any) => {
             this.$store.commit('saveState', value)
           })
